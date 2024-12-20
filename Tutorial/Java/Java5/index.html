@@ -1,0 +1,1499 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Java4/">
+      
+      
+        <link rel="next" href="../Java6/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
+    
+    
+      
+        <title>JavaChapter5 - Magnus的小站</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter5-inheritance" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Magnus的小站" class="md-header__button md-logo" aria-label="Magnus的小站" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Magnus的小站
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              JavaChapter5
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Magnus的小站" class="md-nav__button md-logo" aria-label="Magnus的小站" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Magnus的小站
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    主页
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    关于我
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    教程
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            教程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../JS%26TS/TS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JS/TS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Java
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Java4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JavaChapter4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    JavaChapter5
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    JavaChapter5
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#51-classes-superclasses-and-subclasses" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Classes, Superclasses, and Subclasses
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.1 Classes, Superclasses, and Subclasses">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#511-defining-subclasses" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.1 Defining Subclasses
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#512-overriding-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.2 overriding methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.1.2 overriding methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#super" class="md-nav__link">
+    <span class="md-ellipsis">
+      super 关键字
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#516-method-call" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.6 Method call
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#517-prevent-inheritance-final" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.7 prevent Inheritance final
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#518-casting" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.8 Casting
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52-object-the-cosmic-superclass" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 object: the cosmic Superclass
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.2 object: the cosmic Superclass">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#522-the-equals-method-important" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2.2 The equals Method Important
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.2.2 The equals Method Important">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-do-you-need-to-override-equal-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why do you need to override equal method?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#523-hashcode-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2.3 hashCode method
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-generic-array-lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Generic Array Lists
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#531-declaring-array-lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3.1 Declaring Array Lists
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#54-object-wrappers-and-autoboxing" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4 Object Wrappers and Autoboxing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#55-methods-with-a-variable-number-of-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5 Methods with a variable number of parameters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#56-enumeration-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.6 Enumeration Classes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#57-reflection" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.7 Reflection
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.7 Reflection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#571-the-class-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.7.1 The Class class
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#572-a-primer-on-declaring-exception" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.7.2 A primer on Declaring Exception
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#573-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.7.3 Resources
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#574-using-reflection-to-analyze-the-capabilities-of-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.7.4 Using Reflection to Analyze the capabilities of classes.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#575-using-reflection-to-analyze-objects-at-runtime" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.7.5 Using Reflection to Analyze Objects at Runtime
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#576-using-reflection-to-write-generic-array-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.7.6 Using Reflection to write generic Array Code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#577-invoking-arbitrary-methods-and-constructors" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.7.7 Invoking Arbitrary Methods and Constructors
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Java6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JavaChapter6
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    LeetCode
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            LeetCode
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LeetCode/DP/DP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#51-classes-superclasses-and-subclasses" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Classes, Superclasses, and Subclasses
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.1 Classes, Superclasses, and Subclasses">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#511-defining-subclasses" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.1 Defining Subclasses
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#512-overriding-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.2 overriding methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.1.2 overriding methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#super" class="md-nav__link">
+    <span class="md-ellipsis">
+      super 关键字
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#516-method-call" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.6 Method call
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#517-prevent-inheritance-final" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.7 prevent Inheritance final
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#518-casting" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.8 Casting
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52-object-the-cosmic-superclass" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 object: the cosmic Superclass
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.2 object: the cosmic Superclass">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#522-the-equals-method-important" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2.2 The equals Method Important
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.2.2 The equals Method Important">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-do-you-need-to-override-equal-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why do you need to override equal method?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#523-hashcode-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2.3 hashCode method
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-generic-array-lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Generic Array Lists
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#531-declaring-array-lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3.1 Declaring Array Lists
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#54-object-wrappers-and-autoboxing" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4 Object Wrappers and Autoboxing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#55-methods-with-a-variable-number-of-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5 Methods with a variable number of parameters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#56-enumeration-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.6 Enumeration Classes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#57-reflection" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.7 Reflection
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.7 Reflection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#571-the-class-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.7.1 The Class class
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#572-a-primer-on-declaring-exception" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.7.2 A primer on Declaring Exception
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#573-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.7.3 Resources
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#574-using-reflection-to-analyze-the-capabilities-of-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.7.4 Using Reflection to Analyze the capabilities of classes.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#575-using-reflection-to-analyze-objects-at-runtime" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.7.5 Using Reflection to Analyze Objects at Runtime
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#576-using-reflection-to-write-generic-array-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.7.6 Using Reflection to write generic Array Code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#577-invoking-arbitrary-methods-and-constructors" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.7.7 Invoking Arbitrary Methods and Constructors
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="chapter5-inheritance"><center>Chapter5 Inheritance</center></h1>
+<blockquote>
+<p>继承</p>
+</blockquote>
+<p><span style = "color:red">[tips] 学完反射之后，书本给了一句很关键的话</span>
+<strong>Don't reuse Reflection</strong> 不要滥用reflection
+<strong>The reflection mechanism lets you write programs with amazing generality, by detecting fields and methods at runtime. This capability can beextremely useful for systems programming, but it is usually not appropriate in applications. Reflection is fragile—with it, the compiler cannot help you find programming errors. Any errors are found at runtime and result in exceptions.</strong></p>
+<p>反射是脆弱的，编译器无法正确的帮你找到错误！</p>
+<p>The idea behind inheritance is that you can <strong>create new classes that are built on existing classes(It is the natural of the Inheritance)</strong>. When you inherit from an existing class, you reuse (or inherit) its methods, and you can add new methods and fields to adapt your new class to new situation. <strong>This technique is essential in Java Programming.</strong></p>
+<p>The Inheritance chapter also introduce the mechanism of reflection, the ability to find out more about classes and their properties in a running program.<strong>It is a critical feature of Java</strong></p>
+<h2 id="51-classes-superclasses-and-subclasses">5.1 Classes, Superclasses, and Subclasses</h2>
+<blockquote>
+<p>A sentence to conclue is that a manager <strong>is a</strong> Employee.   <strong>(is-a relation)</strong></p>
+</blockquote>
+<h3 id="511-defining-subclasses">5.1.1 Defining Subclasses</h3>
+<blockquote>
+<p>use the key word <strong>extends</strong></p>
+</blockquote>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Manager</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Employee</span><span class="p">{</span>
+<span class="w">    </span><span class="c1">//added methods and fileds;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>A design principle is that : you place the most general methods in th superclass and more specialized methods in its subclasses.</li>
+</ul>
+<h3 id="512-overriding-methods">5.1.2 overriding methods</h3>
+<blockquote>
+<p>如果说子类继承了父类的一些<span class="arithmatex">\(fields\)</span>和<span class="arithmatex">\(methods\)</span>。如果有些父类不具备的<span class="arithmatex">\(methods/fields\)</span>，你可以直接添加。<strong>但也有一种情况是，子类中的某些方法是需要重写的，或者说是实现方式不一样，那么就需要利用 override 关键字来实现这个方法的重写</strong></p>
+</blockquote>
+<p><img alt="P3" src="../assets/J5-P3.jpg" /></p>
+<h4 id="super">super 关键字</h4>
+<p><img alt="P1" src="../assets/J5-P1.jpg" /></p>
+<blockquote>
+<p>很好理解 <code>super</code> 关键字其实就是一个父类的引用，可以类比一下我们之前一直使用的<code>this</code> 关键字</p>
+</blockquote>
+<p>在上面的例子中，<code>Salary</code>就是 <code>Employee</code> 类中的<code>private fileds</code> 因此我们就需要利用<code>super</code>来获取这个类中的<code>fields</code>.</p>
+<p><span style = "color:red">[tips] Java only support that many to one Inheritance也就是只能允许单继承，不允许多继承</span></p>
+<h3 id="516-method-call">5.1.6 Method call</h3>
+<ul>
+<li>Static Binding : 静态绑定
+If the method is private, static, final or a constructor, then the compiler knows exactly which method to call.因为上面这些methods的属性都是确定的，不涉及可能跨类的调用，那么编译器就可以方便直接的静态绑定。但反之，<code>public</code>或者说是<code>protected</code>这种可以跨类，跨package的，你不知道什么时候会用到，就需要动态绑定(<strong>Dynamic binding</strong>)了.
+<img alt="P2" src="../assets/J5-P2.jpg" /><blockquote>
+<p>Dynamic binding has a very important property: It makes programs extensible without the need for modifying existing code.</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="517-prevent-inheritance-final">5.1.7 prevent Inheritance <code>final</code></h3>
+<p>every methods in <code>final</code> or <code>final class</code> will not been overridden!</p>
+<h3 id="518-casting">5.1.8 Casting</h3>
+<blockquote>
+<p>类型转化</p>
+</blockquote>
+<p>记住，Java是强类型的语言，也就是说不支持像C++那样的隐型转化。</p>
+<ul>
+<li>use <code>instanceof</code> 是一个好习惯，避免出现<code>catch exception(ClasscastException)</code>的情况</li>
+<li>Use instanceof to check before casting from a superclass to a subclass.</li>
+</ul>
+<h2 id="52-object-the-cosmic-superclass">5.2 object: the cosmic Superclass</h2>
+<blockquote>
+<p>object is the ultimate ancestor - every class in Java <code>extends</code> object.</p>
+</blockquote>
+<h3 id="522-the-equals-method-important">5.2.2 The equals Method <span style = "color : red">Important</span></h3>
+<h4 id="why-do-you-need-to-override-equal-method">Why do you need to override <code>equal</code> method?</h4>
+<p>是因为 Object 类默认的equals()方法实现的是比较对象的内存地址（即是否为同一个对象），而不是比较对象的内容</p>
+<h3 id="523-hashcode-method">5.2.3 <code>hashCode</code> method</h3>
+<blockquote>
+<p>The <code>hashCode</code> method is defined in the <code>Object</code> class.Therefore, every object has a defualt hash code.The hash code is derived from the object's memory address.</p>
+</blockquote>
+<p><img alt="P4" src="../assets/J5-P4.jpg" /></p>
+<ul>
+<li>Note that the strings s and t have the same hash code, because for strings, the hash code are derived from its content.
+here <code>String s = "OK"</code>,<code>String t = new String("OK")</code>,so their hash code is the same.</li>
+<li>But for other object, which <code>hashCode</code> has not been defined for the class that it will only use the default <code>hashCode</code> defined in the <code>Object</code> class, which derives the <code>memory address</code>.</li>
+</ul>
+<p><span style = "color : red">Important: Why do you need to <code>override</code> the <code>hashCode</code> method after you <code>override</code> the <code>equals</code> method?</span></p>
+<p>这是因为在使用散列数据结构的时候，比如哈希表，我们希望相等的对象具有相等的哈希码！在Java中，哈希表使用哈希码来确定存储兑现过的位置，如果两个相同的对象具有不同的哈希码，那么他们就会被存在哈希表中的不同位置，会导致无法正确的查找这些对象。</p>
+<p><img alt="P5" src="../assets/J5-P5.jpg" /></p>
+<h3 id="53-generic-array-lists">5.3 Generic Array Lists</h3>
+<blockquote>
+<p>通用数组列表</p>
+</blockquote>
+<p>In C/C++ you have to fix the sizes of all arrays at compile time.But it is awful in sometime.Althogh Java could set size of an array at runtime like
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">acutalSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">staff</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Employee</span><span class="o">[</span><span class="n">actualSize</span><span class="o">]</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+但上面的代码不能完全解决动态修改数组大小的问题。一旦确定了数组的大小，那么就是不容易更改的。所以我们考虑了 <code>ArrayLists</code></p>
+<blockquote>
+<p>ArrayList class is similar to an array, but it automatically adjusts its capacity as you add and remove elements,without any additional code.</p>
+</blockquote>
+<h3 id="531-declaring-array-lists">5.3.1 Declaring Array Lists</h3>
+<p><code>ArrayList&lt;Employee&gt; staff = new ArrayList&lt;Employee&gt;()</code></p>
+<ul>
+<li><code>ensureCapacity(size)</code> method allocates an internal array of size objects, that you haven't involve any costly reallocation to <code>add</code> method.</li>
+</ul>
+<h2 id="54-object-wrappers-and-autoboxing">5.4 Object Wrappers and Autoboxing</h2>
+<p><img alt="P6" src="../assets/J5-P6.jpg" /></p>
+<ul>
+<li>
+<p>The type parameter inside the angle brackets cannot be a primitive type
+<code>ArrayList&lt;int&gt;</code> is not allowed.</p>
+</li>
+<li>
+<p>Because you define it must use the wrapper class, so actually it is slower obviously that <code>int[] array</code>.</p>
+</li>
+</ul>
+<h2 id="55-methods-with-a-variable-number-of-parameters">5.5 Methods with a variable number of parameters</h2>
+<p>我们这里就很好理解了，很自然的因为所有的类型都是<code>Object class</code> 的 subclass,所以我们传入的参数事实上就是<code>Object[]</code>.
+我们下面以<code>printf</code>为例子。
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PrintStream</span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">PrintStream</span><span class="w"> </span><span class="nf">printf</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">fmt</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">){</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">format</span><span class="p">(</span><span class="n">fmt</span><span class="p">,</span><span class="n">args</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+[tips] : 这里的<code>...</code> 也是Java代码中的一部分，这个表示了这个方法可以收获许多的<code>objects</code>。</p>
+<p>[例子]
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="kt">double</span><span class="p">...</span><span class="w"> </span><span class="n">values</span><span class="p">){</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">largest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Double</span><span class="p">.</span><span class="na">NEGATIVE_INFINITY</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">v</span><span class="p">:</span><span class="n">values</span><span class="p">){</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">v</span><span class="o">&gt;</span><span class="n">largest</span><span class="p">){</span>
+<span class="w">            </span><span class="n">largest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">largest</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
+<h2 id="56-enumeration-classes">5.6 Enumeration Classes</h2>
+<p>here we introduce an example:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">enum</span><span class="w"> </span><span class="n">Size</span><span class="p">{</span>
+<span class="w">    </span><span class="n">SMALL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">MEDIUM</span><span class="p">,</span>
+<span class="w">    </span><span class="n">LARGE</span><span class="p">,</span>
+<span class="w">    </span><span class="n">EXTRA_LARGE</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+you are not need to use <code>equals</code> method,because there is only <span class="arithmatex">\(4\)</span> instances in the enumeral class. You can simply use <code>==</code> to identify whether these 2 are the same.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">enum</span><span class="w"> </span><span class="n">Day</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">MONDAY</span><span class="p">(</span><span class="s">&quot;Workday&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="n">TUESDAY</span><span class="p">(</span><span class="s">&quot;Workday&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="n">WEDNESDAY</span><span class="p">(</span><span class="s">&quot;Workday&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="n">THURSDAY</span><span class="p">(</span><span class="s">&quot;Workday&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="n">FRIDAY</span><span class="p">(</span><span class="s">&quot;Workday&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="n">SATURDAY</span><span class="p">(</span><span class="s">&quot;Weekend&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="n">SUNDAY</span><span class="p">(</span><span class="s">&quot;Weekend&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">type</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// 构造函数</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="nf">Day</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">type</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">type</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 获取type属性的方法</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getType</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">type</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 获取枚举常量和属性</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Day</span><span class="w"> </span><span class="n">day</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Day</span><span class="p">.</span><span class="na">values</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">day</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; is a &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">day</span><span class="p">.</span><span class="na">getType</span><span class="p">());</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>我们举了上面的例子，<code>MONDAY</code>...那些都是Day的实例instance.然后在定义的时候，顺便调用了<code>Day</code>中的<code>construct function</code> 
+<code>public Day(String type){ this.type = type;}</code>
+因为已经在<code>Day</code>这个类中定义了 <code>private String type;</code> <code>type</code>这个field.
+那么上面的结果输出出来就是
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">MONDAY</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">Workday</span>
+<span class="n">TUESDAY</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">Workday</span>
+<span class="n">WEDNESDAY</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">Workday</span>
+<span class="n">THURSDAY</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">Workday</span>
+<span class="n">FRIDAY</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">Workday</span>
+<span class="n">SATURDAY</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">Weekend</span>
+<span class="n">SUNDAY</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">Weekend</span>
+</code></pre></div></td></tr></table></div></p>
+<h2 id="57-reflection">5.7 Reflection</h2>
+<blockquote>
+<p>终于到Reflection了 这个Java的特性
+- GPT如是说
+<img alt="P7" src="../assets/J5-P7.jpg" />
+- 怎么仔细理解<code>reflection</code>？ 为什么叫做反射？
+这个是一个来自物理学中的概念，反射的本质是"看到自己的样子",而Java中的反射（Reflection）机制也类似，它允许程序在运行的时候“查看”自己的结构，通过反射，程序可以在不明确知道自己包含哪些类、方法、属性的情况下，动态地检查操控自身的内部信息。</p>
+</blockquote>
+<h3 id="571-the-class-class">5.7.1 The <code>Class</code> class</h3>
+<blockquote>
+<p>While your program is running, the Java runtime system always maintains what is called <code>runtime type identification</code> on all objects. This information keeps track of the class to which each object belongs.Runtime type information is used by the cirtual machine to <strong>select the correct methods to execute.</strong></p>
+</blockquote>
+<ul>
+<li>
+<p>Just like an <code>Employee</code> object describes the properties of a particular employee,a <code>Class</code> object describes the properties of a particular class.</p>
+</li>
+<li>
+<p>If the class is a package, the package name is part of the class name.</p>
+</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">generator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Random</span><span class="p">();</span>
+<span class="n">Class</span><span class="w"> </span><span class="n">cl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">generator</span><span class="p">.</span><span class="na">getClass</span><span class="p">();</span>
+<span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cl</span><span class="p">.</span><span class="na">getName</span><span class="p">();</span><span class="w"> </span><span class="c1">// name is set to &quot;java.util.Random&quot;</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>You can obtain a class object corresponding to a class name by using the static <code>forName</code> method.</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">String</span><span class="w"> </span><span class="n">className</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;java.util.Random&quot;</span><span class="p">;</span>
+<span class="n">Class</span><span class="w"> </span><span class="n">cl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Class</span><span class="p">.</span><span class="na">forName</span><span class="p">(</span><span class="n">className</span><span class="p">);</span><span class="c1">// to obtain this class instance.</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li><code>Class cl = Random.class</code></li>
+<li><code>Class cl = int.class</code> </li>
+</ul>
+<p>Another method to get the class instance.</p>
+<ul>
+<li><span style = "color:red">if(e.getClass() == Employee.class)</span>
+这个测试会抛出Exception，当e是Employee的subclass.也就是说，这个getClass()返回的类型是强类型的，不包含继承的转化，得到的是什么那么就是什么。</li>
+</ul>
+<h3 id="572-a-primer-on-declaring-exception">5.7.2 A primer on Declaring Exception</h3>
+<blockquote>
+<p>When an error occurs at runtime,a program can "throw an Exception"</p>
+</blockquote>
+<p>If you don't provide a "handle" ("catches" the exception and deals with it),the program will terminate and prints a message to the console.</p>
+<h3 id="573-resources">5.7.3 Resources</h3>
+<blockquote>
+<p>Classes often have associated data files, such as:
+- Image and sound files
+- Text files with message strings and button labels.</p>
+</blockquote>
+<h3 id="574-using-reflection-to-analyze-the-capabilities-of-classes">5.7.4 Using Reflection to Analyze the capabilities of classes.</h3>
+<ul>
+<li>First, there are <strong>3</strong> classes in the <span class="arithmatex">\(java.lang.reflect\)</span> packages</li>
+<li><span class="arithmatex">\(Field\)</span></li>
+<li><span class="arithmatex">\(Method\)</span></li>
+<li><span class="arithmatex">\(Constructor\)</span>
+they describe the fields, methods, and constructors of a class respectively.</li>
+</ul>
+<p>其实反射的这个功能很好理解，也就是获取这个class中的一些fields,methods,constructor的元信息。
+- <code>getName</code>  return the name of the item
+- <code>getType</code> return the type Class
+- <code>getModifiers</code> return an integer with various bits turned on and off, describes the modifiers used,such as <span class="arithmatex">\(public\)</span> and <span class="arithmatex">\(static\)</span>
+- <code>getFileds</code>/<code>getMethods</code>/<code>getConsstructors</code> return arrays of the public fields,methods,and constructors that the class support.</p>
+<h3 id="575-using-reflection-to-analyze-objects-at-runtime">5.7.5 Using Reflection to Analyze Objects at Runtime</h3>
+<blockquote>
+<p>The obove Session we saw how find out the <code>names</code> and <code>types</code>.The following part, we will go one step further and actually look at the contents of the fields.</p>
+</blockquote>
+<p><img alt="P8" src="../assets/J5-P8.jpg" />
+<span style = "color:red">Reflection lets you look at fields of objects that were not known at compile time.</span></p>
+<ul>
+<li><code>getDeclaredFiled</code>是可以访问私有字段的。</li>
+</ul>
+<p>上面的代码段怎么理解呢？就是可以把他想成是Excel的形式，我们首先<code>Class cl = harray.getClass()</code> 返回了一个<code>Class</code>类的实例<code>Employee</code>。 <code>Fields f = cl.getDeclaredField("name")</code> 这个<code>f</code>也就是获得了有关<code>name</code>字段的所有内容，也就是说是像数据库中的获取了某个列的所有内容，我们的<code>Object v = f.get(harry)</code>,<code>Object v</code> 就获得的是<code>String</code>类型的<code>Harry Hacker</code>也就是这一列name字段中，属于<code>harry</code>的name。</p>
+<p>but the code above has a problem -- The machanism of Java lets you find out what fields an object has,but it won't let you read and write the values of the fields, unless you have permission.</p>
+<p><code>field.setAccessible(true) // 绕过限制访问</code></p>
+<p>具体怎么理解 <strong>"Reflection lets you look at fields of objects that were not known at compile time."</strong> 这句话呢？
+我们拿序列化来举例</p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">java.lang.reflect.Field</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.HashMap</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Map</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ObjectSerializer</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">serialize</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">obj</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IllegalAccessException</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Class</span><span class="o">&lt;?&gt;</span><span class="w"> </span><span class="n">cl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="na">getClass</span><span class="p">();</span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Field</span><span class="w"> </span><span class="n">field</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">cl</span><span class="p">.</span><span class="na">getDeclaredFields</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">field</span><span class="p">.</span><span class="na">setAccessible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span><span class="w">  </span><span class="c1">// 绕过访问限制</span>
+<span class="w">            </span><span class="n">result</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">field</span><span class="p">.</span><span class="na">getName</span><span class="p">(),</span><span class="w"> </span><span class="n">field</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">obj</span><span class="p">));</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IllegalAccessException</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Employee</span><span class="w"> </span><span class="n">emp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Employee</span><span class="p">(</span><span class="s">&quot;Alice&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">75000</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">1990</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">serializedData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">serialize</span><span class="p">(</span><span class="n">emp</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">serializedData</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<strong>输出结果</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="n">Alice</span><span class="p">,</span><span class="w"> </span><span class="n">salary</span><span class="o">=</span><span class="mi">75000</span><span class="p">,</span><span class="w"> </span><span class="n">hireMonth</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="n">hireDay</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="n">hireYear</span><span class="o">=</span><span class="mi">1990</span><span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
+<p>上面的例子其实就是很好的反应了通过Java的反射机制，我们可以动态的访问这些字段并且获取他们的值。在serialize方法用于不同类型的对象的时候，它依然可以工作，而不需要为每一种对象都定义单独的接收/判断机制。因为它们需要支持多种不同的对象结构！</p>
+<h3 id="576-using-reflection-to-write-generic-array-code">5.7.6 Using Reflection to write generic Array Code</h3>
+<p><img alt="P9" src="../assets/J5-P9.jpg" /></p>
+<p>这里有一个要注意的点是 文中提及了这一个point：</p>
+<blockquote>
+<p>It is legal to cast an <strong>Employee[ ]</strong> temporarily to an <strong>Object[ ]</strong> array and then cast it back,but an array that started its life as an <strong>Object[ ]</strong> array can never be cast into an <strong>Employee[ ]</strong> array.
+<strong>所以我们需要利用到Reflection Package</strong></p>
+</blockquote>
+<ul>
+<li>First : get the class object of <code>a</code></li>
+<li>Confirm that a it is indeed an array</li>
+<li>Use the <code>getComponentType</code> method of the Class (which is defined only for class objects that represent arrays) to find the right type for the array.</li>
+</ul>
+<h3 id="577-invoking-arbitrary-methods-and-constructors">5.7.7 Invoking Arbitrary Methods and Constructors</h3>
+<blockquote>
+<p>Because Java has no function pointer that, it can't like C / C++ you can execute an arbitrary function. But the following sessions we will introduce a new way to invoke the function.</p>
+</blockquote>
+<p>其实跟上面的道理一样，我们有<code>getMethod</code> 和<code>getConstructor</code> method来获取对应的Method和Constructor的主体。
+下面是几个例子
+- Example for Constructor
+<img alt="P10" src="../assets/J5-p10.jpg" />
+那么<code>cons</code>就类似于一个method pointer了</p>
+<ul>
+<li>Example for Method
+<img alt="P11" src="../assets/J5-P11.jpg" />
+上面的<code>square</code>和<code>sqrt</code>就代表着类似method pointer.</li>
+</ul>
+<style>
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width : 80%;
+  border-radius: 15px; /* 将图片设置为圆形 */
+
+} 
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
