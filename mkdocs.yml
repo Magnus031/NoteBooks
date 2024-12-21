@@ -6,15 +6,31 @@ repo_url : https://github.com/Magnus031/NoteBooks
 nav:
   - 主页 : index.md
   - 关于我 : about.md
-  - 教程 : 
-    - JS/TS : Tutorial/JS&TS/TS.md
+  - 语言 : 
+    - JS&TS : 
+      - JS : Tutorial/JS&TS/JS.md
+      - TS : Tutorial/JS&TS/TS.md
     - Java :
       - Objects and classes : Tutorial/Java/Java4.md
       - Inheritance : Tutorial/Java/Java5.md
       - Interface : Tutorial/Java/Java6.md
   - 数据结构与算法: 
-    - DP : LeetCode/DP/DP.md
-    - Tree : LeetCode/Tree/BinaryTree.md
+    - 动态规划 : LeetCode/DP/DP.md
+    - 贪心算法 : LeetCode/Greedy/Greedy.md
+    - 滑动窗口 : LeetCode/windows/windows.md
+    - 树 : LeetCode/Tree/BinaryTree.md
+  - CS : 
+    - 计网 : 
+      - TCP 层 : CS-courses/CN/TCP.md
+    
+  - 技术 : 
+    - Web :
+      - 异步 : Tech/Web/Asyn.md 
+
+  - Economic :  Economic-Courses
+  - 讨饭经历 : Interview 
+  - 一些看过的书 : Books
+  - 拙见 : Experiences
 theme: 
   name : material
 

@@ -1,18 +1,13 @@
-# Welcome to MkDocs
+# Welcome to Magnus 的小站
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+<div class = "Title" style = "text-align:center">You must not afraid of dreaming a bit bigger!</div>
 
-## Commands
+很喜欢的一句话，祝你也祝我
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-* `mkdocs gh-deploy` - push the site into the Github so that the pages can update at the same time
 
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+<style>
+    .Title{
+        font-size : 30px ;
+        text-align : center;
+    }
+</style>
