@@ -1,0 +1,1892 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://github.com/Magnus031/NoteBooks/CS-courses/CN/TCP/">
+      
+      
+        <link rel="prev" href="../../../LeetCode/Tree/BinaryTree/">
+      
+      
+        <link rel="next" href="../../../Tech/Web/Asyn/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
+    
+    
+      
+        <title>TCP 层 - Magnus的小站</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tcpip" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Magnus的小站" class="md-header__button md-logo" aria-label="Magnus的小站" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Magnus的小站
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              TCP 层
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Magnus031/NoteBooks" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Magnus031/NoteBooks
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Magnus的小站" class="md-nav__button md-logo" aria-label="Magnus的小站" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Magnus的小站
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Magnus031/NoteBooks" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Magnus031/NoteBooks
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    主页
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    关于我
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    语言
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            语言
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    JS&TS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            JS&TS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tutorial/JS%26TS/JS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tutorial/JS%26TS/TS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Java
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tutorial/Java/Java4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Objects and classes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tutorial/Java/Java5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inheritance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tutorial/Java/Java6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    数据结构与算法
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            数据结构与算法
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LeetCode/DP/DP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    动态规划
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LeetCode/Greedy/Greedy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    贪心算法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LeetCode/windows/windows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    滑动窗口
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LeetCode/Tree/BinaryTree/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    树
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            CS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    计网
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            计网
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    TCP 层
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    TCP 层
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-tcpip" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction TCP/IP 协议
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction TCP/IP 协议">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      网络层
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="网络层">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      IP
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      特点
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#icmp" class="md-nav__link">
+    <span class="md-ellipsis">
+      ICMP
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      传输层
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="传输层">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#port" class="md-nav__link">
+    <span class="md-ellipsis">
+      Port 端口号
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Port 端口号">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据的区分
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      如何定义端口号
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="如何定义端口号">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      标准既定端口号
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      时序分配法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      TCP
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="TCP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      特点
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tcp_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      TCP机制
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="TCP机制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      如何确认重发超时呢？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tcp_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      TCP连接的三次握手
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tcp_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      TCP连接的四次挥手
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      滑动窗口机制
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      滑动窗口的窗口控制与重发
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#udp" class="md-nav__link">
+    <span class="md-ellipsis">
+      UDP
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UDP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      特点
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用场景 （包少/即时）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tcp-header-file-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      TCP 首部格式(header file format)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#udp_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      UDP 首部文件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#www" class="md-nav__link">
+    <span class="md-ellipsis">
+      WWW
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e-mail" class="md-nav__link">
+    <span class="md-ellipsis">
+      E-Mail
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ftp" class="md-nav__link">
+    <span class="md-ellipsis">
+      FTP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#telnet-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      TELNET 和 SSH
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#package" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package 包传输
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    技术
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            技术
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Web
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            Web
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tech/Web/Asyn/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    异步
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Economic-Courses" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Economic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Interview" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    讨饭经历
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Books" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    一些看过的书
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Experiences" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    拙见
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-tcpip" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction TCP/IP 协议
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction TCP/IP 协议">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      网络层
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="网络层">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      IP
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      特点
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#icmp" class="md-nav__link">
+    <span class="md-ellipsis">
+      ICMP
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      传输层
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="传输层">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#port" class="md-nav__link">
+    <span class="md-ellipsis">
+      Port 端口号
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Port 端口号">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据的区分
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      如何定义端口号
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="如何定义端口号">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      标准既定端口号
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      时序分配法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      TCP
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="TCP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      特点
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tcp_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      TCP机制
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="TCP机制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      如何确认重发超时呢？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tcp_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      TCP连接的三次握手
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tcp_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      TCP连接的四次挥手
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      滑动窗口机制
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      滑动窗口的窗口控制与重发
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#udp" class="md-nav__link">
+    <span class="md-ellipsis">
+      UDP
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UDP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      特点
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用场景 （包少/即时）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tcp-header-file-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      TCP 首部格式(header file format)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#udp_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      UDP 首部文件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#www" class="md-nav__link">
+    <span class="md-ellipsis">
+      WWW
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e-mail" class="md-nav__link">
+    <span class="md-ellipsis">
+      E-Mail
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ftp" class="md-nav__link">
+    <span class="md-ellipsis">
+      FTP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#telnet-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      TELNET 和 SSH
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#package" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package 包传输
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="tcpip"><center>TCP/IP</center></h1>
+<h2 id="introduction-tcpip">Introduction TCP/IP 协议</h2>
+<blockquote>
+<p>其实指代的是利用IP进行通信时候所必须使用的协议群的统称
+- 定义：
+具体来说，IP 或 ICMP ，TCP 或 UDP，TELNET 或FTP，以及HTTP等都是属于TCP/IP的协议，他们与TCP或IP关系紧密，因此也有叫做 TCP/IP为网际协议族。</p>
+</blockquote>
+<p><img alt="P11" src="../asset/CN-P14.jpg" /></p>
+<ul>
+<li>传输层 -&gt; It is called Segment</li>
+<li>网络层 -&gt;It is called Packet </li>
+<li>数据链路层 -&gt; It is called Frame</li>
+</ul>
+<h3 id="_1">网络层</h3>
+<p><img alt="P1" src="../asset/CN-P1.jpg" /></p>
+<h4 id="ip">IP</h4>
+<blockquote>
+<p>IP 地址 指的是对方主机的标识符</p>
+</blockquote>
+<ul>
+<li>由于计算机网络的设计是分层设计，极其的抽象与封装，这导致无论数据链路层是怎么传播的，都不会影响到两个利用IP地址传输的设备传输过程。</li>
+</ul>
+<h5 id="_2">特点</h5>
+<ul>
+<li>不具有重发机制，即使是分组数据包未能到达对端主机，也不会进行重发，因此是 <span style= "color : red">非可靠性传输协议</span></li>
+</ul>
+<h4 id="icmp">ICMP</h4>
+<blockquote>
+<p>Internet Control Message Protocol 互联网控制信息协议</p>
+</blockquote>
+<p>作用是发送端的IP数据在发送途中如果遇到了异常，无法最终到达对端，那么需要给发送端发送ICMP的发生异常的通知。有时也用来进行网络诊断健康状况。</p>
+<blockquote>
+<p>因为IP协议是不可重传的协议，那么在发生故障时，很自然的联想到需要让对方知道我们哪里出错了，ICMP就扮演了这个角色。</p>
+</blockquote>
+<h3 id="_3">传输层</h3>
+<blockquote>
+<p>传输层最重要的功能就是能够让应用程序之间实现通信。因为双方的计算机上运行着许许多多的程序，那么要分清楚我们是哪几个程序之间进行通信就显得尤为重要。所以<strong>端口</strong>出现了。</p>
+<p>同时传输层有两种传输协议 <strong>TCP</strong> (transfer control protocol)传输控制协议 与 <strong>UDP</strong> (User Datagram protocol) 用户数据传输协议</p>
+</blockquote>
+<p>可以简单的理解为送信员给A家送信，然后A家中有小B，小C，小D 送信员要知道它要把邮件送给谁。 
+<img alt="P4" src="../asset/CN-P4.jpg" /></p>
+<h4 id="port">Port 端口号</h4>
+<p>为了分清这个数据包是发送给谁/谁需要接收，在一个宿主机host中的各个应用程序也就被分配了对应的端口号便于区分。</p>
+<p><img alt="P5" src="../asset/CN-P5.jpg" />
+用上图来简单的说明，在发送来的package被接收了，在某个<strong>destination host</strong>接收了这个数据包的时候，会解构得到TCPheader文件中的<strong>destination port</strong> 80，知道是发送给80端口的SYN包，将数据转发给80端口，然后一直监听着httpd程序即可。
+这些服务器程序在UNIX系统中被称为是守护进程， httpd sshd 启动一个就表示它们接收客户端请求的inetd（互联网守护进程），超级守护进程会在接收到客户端请求以后创建新的进程并转化为其他的守护进程。</p>
+<p>TCP 和 UDP 两者各有利弊，没有谁说有绝对的优与劣，只是实用场景不同，用到的时候也不同。</p>
+<h5 id="_4">数据的区分</h5>
+<p>因为可能出现两个数据包的 <strong>source port</strong>和<strong>destination port</strong> 完全相同的情况，就不能简单的通过端口号来区分，有的时候甚至两个IP地址也都是完全一样的，但是所用的传输协议不一样，可能是TCP也可能是UDP。因此，我们要保证5样东西完全一样，才能说明是一个通信。
+- 源IP地址
+- 目标IP地址
+- 协议号 TCP/UDP
+- 源端口号
+- 目标端口号</p>
+<h5 id="_5">如何定义端口号</h5>
+<h6 id="_6">标准既定端口号</h6>
+<p>也就是说每个应用程序都是有它既定的端口号，尤其是一些HTTP,TELNET,FTP等的端口号都是固定的。(Well-Known Port Number)</p>
+<h6 id="_7">时序分配法</h6>
+<p>如果说上面的分配方法是静态的，那么这种方法就是Dynamic动态分配。此时服务端有必要
+确定监听端口号，但是接收服务的客户端没必要确定端口号。可以等着让操作系统来分配，这样操作系统就可以动态的管理端口号了。</p>
+<h4 id="tcp">TCP</h4>
+<blockquote>
+<p>Transfer Control Protocol</p>
+</blockquote>
+<p>TCP协议是一种面向有连接的传输层协议，什么是有连接呢？就是表示的是我们要时刻跟踪信息的传输，要不断的给发送端进行相应 也就是 <strong>sender</strong> 和 <strong>receiver</strong> 之间是需要互相发送消息确认跟进消息进度的。可以正确的处理丢包/乱序/重传的问题。但是为了建立与断开链接，需要至少7次的发包和收包，导致网络流的浪费，因此不太适合用在视频会议这种方面。</p>
+<h5 id="_8">特点</h5>
+<ul>
+<li>可靠</li>
+<li>面向连接的传输</li>
+<li>自控制，指的是不需要应用程序考虑，应用程序在接收数据package的时候就已经默认是正确处理过的数据了。</li>
+<li>但是慢，不能用于即时性很高的信息传输</li>
+</ul>
+<h5 id="tcp_1">TCP机制</h5>
+<blockquote>
+<p>ack 确认应答 (acknowledge)</p>
+</blockquote>
+<p>也就是说，TCP在两个对象建立起通信的时候，会形成类似对话一样的协议，你发什么，对方就要给你应答什么，直到你接收到了这个ack标志，说明之前的信息已经成功的接收到了。在一段时间内没有收到信息回复，就说明需要重新发送(RTO)。这里CS144的lab里做过。具体机制不细讲</p>
+<h6 id="_9">如何确认重发超时呢？</h6>
+<p>重发超时是指在重发数据之前，等待确认应答到来的那个特定的时间间隔（RTO），当时间超过了RTO则说明要重新发送这个数据，当重发的次数超过一定数量，就会自动的停止连接，并且通知应用通信异常强制终止。</p>
+<h5 id="tcp_2">TCP连接的三次握手</h5>
+<p><span style = "color : red">Tips：</span> 三次握手指的是，我们在建立TCP连接的过程，需要发送3个包 <strong>(客户端和服务器之间的互相发送总共三次)</strong>，分别是 <strong>SYN,SYN+ACK,ACK</strong> 来确定，在此期间，我们都需要等待服务器给你acknowledge来确认是否成功接受。完成了三次握手才算真正的完成了TCP一个完整的过程。
+<strong>在三次握手的过程中，不仅仅是告诉了完成了TCP连接的建立，其实也是会包含一些元信息，比如MSS(Maximum Segment Size)最大消息长度等等，一些连接之间的消息传输规范都会包含在服务器发来的包中</strong></p>
+<p><img alt="P6" src="../asset/CN-P6.jpg" /></p>
+<h5 id="tcp_3">TCP连接的四次挥手</h5>
+<p><img alt="P8" src="../asset/CN-P8.jpg" /></p>
+<p>TCP的<strong>四次挥手</strong>和<strong>三次握手</strong>本质一样，其实就是应答交互。那么四次挥手就是客户端和服务端之间发送4个包进行断开连接的确认。
+- FIN 第一次挥手，是客户端向服务端进行挥手。发出断开连接的请求
+- ACK 第二次挥手，是服务器端向客户端进行的挥手，发出请求的应答，同意断开连接。
+- FIN 第三次挥手，是服务器向客户端的挥手，发出请求，让客户端可以进行断开连接了。
+- ACK 第四次挥手，是客户端向服务器端进行的挥手，表示的是同意了请求，正式断开连接。</p>
+<h5 id="_10">滑动窗口机制</h5>
+<p><img alt="P7" src="../asset/CN-P7.jpg" /></p>
+<p>因为如果我们每次只发一个段，还要等待完成应答之后才能继续发送，这样会在网络拥堵的时候造成性能大幅下降。因为会由于等待的时间延长而下降。我们这里考虑开个窗口<strong>无需等待确认应答而可以继续发送数据的最大值，同时窗口中要记得保留窗口内的数据直到接收到了成功传输的应答的时候才可以停止。</strong></p>
+<p>比如上图，我们设置了一个窗口，它有4个段。每成功接收到了一个数据应答的时候就进行滑动窗口。</p>
+<h5 id="_11">滑动窗口的窗口控制与重发</h5>
+<ul>
+<li>
+<p>case1 应答未能返回，这种情况下，如果数据已经达到了对端，那么我们也不需要重发。在利用了窗口控制之后，有些数据没有得到应答也不用重发，因为在TCP协议中，我们会有一个reassembler部分，也就是说我们得到的是服务器已经接收到的数据成功顺序排序的结果，比如没有收到1001的数据应答，但是收到了2001的数据应答，就说明服务端已经接收到了1001，只是因为某种原因，发回的应答没有收到，这种时候就应该直接把2001之前的buffer中的数据进行清除。</p>
+</li>
+<li>
+<p>case2 当窗口比较大的时候，这时候我们的接收到的应答如果超过了3次，都需要1001的报文进行重发，这时候就需要将1001序号的报文进行重发了。</p>
+</li>
+</ul>
+<h4 id="udp">UDP</h4>
+<blockquote>
+<p>User Datagram Protocol</p>
+</blockquote>
+<h5 id="introduction">Introduction</h5>
+<p>UDP有别于TCP，是一种面向无连接的传输协议，不会考虑对方是否真的收到了发送过去的数据，只负责发送。<strong>那么检验的工作就交给应用程序解决</strong>，就是简单的来说它很纯粹，一次只干一件事，那就是负责把数据传出去，就OK了。</p>
+<h5 id="_12">特点</h5>
+<ul>
+<li>简单高效</li>
+<li>面向无连接</li>
+<li>可以随时的发送数据</li>
+</ul>
+<h5 id="_13">使用场景 （包少/即时）</h5>
+<ul>
+<li>包总量较少的通信DNS,SNMP</li>
+<li>视频/音频等多媒体即时通信</li>
+<li>限定于LAN等特定网络中的应用通信</li>
+<li>广播通信</li>
+</ul>
+<h4 id="tcp-header-file-format">TCP 首部格式(header file format)</h4>
+<p><img alt="P9" src="../asset/CN-P9.jpg" /></p>
+<blockquote>
+<p>首先是为什么是32位？</p>
+</blockquote>
+<p>因为，倘若是64位，我们就可以保证近似无限大，<span class="arithmatex">\(2^{64}\)</span>来表示字节的索引实在是有点浪费了，因为对于TCP的首部来说空间是很宝贵的。因此我们考虑了一种<span class="arithmatex">\(wrap \ number\)</span>也就是32位。然后起始的<span class="arithmatex">\(SYN\)</span>是随机数<code>uint32_t</code>，然后进行循环表示类似下图的表来表示比较易懂。
+<img alt="P10" src="../asset/CN-P10.jpg" /></p>
+<ul>
+<li>sequence number 序列号 表示的是发送数据的位置，也就是滑动窗口的左边缘。</li>
+<li>Acknowledgement Number 确认应答号 表示的是下一次应该收到的数据的序列号</li>
+<li>
+<p>Data Offset 数据偏移 表示的是TCP所传输的数据部分应该从TCP包的哪一位开始计算，也可以看成是TCP首部长度。</p>
+</li>
+<li>
+<p>checkSum 校验和 作用是一种进行路由器内存故障或程序漏洞导致的数据是否被破坏的一种检查。<strong>因为数据链路的FCS已经可以检查了在噪声干扰的通信途中出现的位错误</strong>，那么这里的校验和就是看协议首部和数据是否被破坏。
+<strong>这里参考上面的UDPCheckSum</strong></p>
+</li>
+<li>
+<p><strong>Control Flag</strong>控制位 每一位都有不同的作用
+<img alt="P11" src="../asset/CN-P11.jpg" /></p>
+</li>
+</ul>
+<h4 id="udp_1">UDP 首部文件</h4>
+<p><img alt="P12" src="../asset/CN-P12.jpg" />
+<img alt="P13" src="../asset/CN-P13.jpg" /></p>
+<p>就简单的来说，UDP的首部header中的checksum是可选的。如果不想检查就写全0.倘若想检查，那么很简单，我们就把checksum定义为前面所有segments之和取余之后的补码，这样就可以让所有加起来的和为<span class="arithmatex">\(4'hFFFF\)</span>也就是全部为1.在检验的时候，如果发现有一位不为1，那么就说明差出现了错误。</p>
+<ul>
+<li>为什么要计算UDP伪首部的理由？
+因为对于TCP/IP中识别一个进行通信的应用需要5大要素，他们分别是<ul>
+<li>source IP </li>
+<li>destination IP</li>
+<li>source Port</li>
+<li>destination Port</li>
+<li>protocol number <strong>TCP/UDP</strong></li>
+</ul>
+</li>
+</ul>
+<p>### 应用层</p>
+<blockquote>
+<p>The Application layer here included 3 layers in the OSI </p>
+</blockquote>
+<h4 id="www">WWW</h4>
+<p>浏览器与服务端之间通信所用的协议是HTTP(HyperText Transfer Protocol)超文本传输协议，而传输数据的主要格式就是HTML(HyperText Markup Language)超文本标识语言。WWW中的HTTP属于OSI应用层的协议，而HTML属于表示层的协议。</p>
+<h4 id="e-mail">E-Mail</h4>
+<blockquote>
+<p>SMTP Simple Mail Transfer Protocol</p>
+</blockquote>
+<p>而电子邮件协议在MIME协议的拓展之后，可以发送出了文本格式的电子邮件了，而MIME协议也属于OSI参考模型的第六层----表示层。</p>
+<h4 id="ftp">FTP</h4>
+<blockquote>
+<p>File Transfer Protocol文件传输协议</p>
+</blockquote>
+<p>FTP进行文件传输的时候会建立两个TCP连接，分别是发出传输请求时所需要用到的控制连接和实际传输所要用到的数据连接，其实也就是先要发送一个request请求和实际传输。</p>
+<h4 id="telnet-ssh">TELNET 和 SSH</h4>
+<blockquote>
+<p>远程登录</p>
+</blockquote>
+<h3 id="package">Package 包传输</h3>
+<p><img alt="P2" src="../asset/CN-P2.jpg" />
+我们的数据包其实是数据 + 若干头文件，因为计算机网络是分层的，那么我们在每个分层中都会为数据加一个header头文件，包含了该层的必要源信息，如发送目标地址以及协议相关的信息。从下一层来看，上一层收到的包全部都被认为是本层的数据，包括其他层未解构的头文件。</p>
+<p><img alt="P3" src="../asset/CN-P3.jpg" /></p>
+<style>
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width : 80%;
+  border-radius: 15px; /* 将图片设置为圆形 */
+
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
