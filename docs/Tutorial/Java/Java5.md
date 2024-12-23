@@ -81,7 +81,7 @@ here `String s = "OK"`,`String t = new String("OK")`,so their hash code is the s
 
 ![P5](./assets/J5-P5.jpg)
 
-### 5.3 Generic Array Lists
+## 5.3 Generic Array Lists
 > 通用数组列表
 
 In C/C++ you have to fix the sizes of all arrays at compile time.But it is awful in sometime.Althogh Java could set size of an array at runtime like

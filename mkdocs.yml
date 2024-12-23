@@ -14,6 +14,10 @@ nav:
       - Objects and classes : Tutorial/Java/Java4.md
       - Inheritance : Tutorial/Java/Java5.md
       - Interface : Tutorial/Java/Java6.md
+      - Excepetion : Tutorial/Java/Java7.md
+      - Generic Programming : Tutorial/Java/Java8.md
+      - Collections : Tutorial/Java/Java9.md
+      - Concurrency : Tutorial/Java/Java12.md
   - 数据结构与算法: 
     - 动态规划 : LeetCode/DP/DP.md
     - 贪心算法 : LeetCode/Greedy/Greedy.md

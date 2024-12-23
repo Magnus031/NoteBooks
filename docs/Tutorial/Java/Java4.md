@@ -39,6 +39,7 @@ The above is the difference between **C++** and **Java** in the object referrenc
 ```
 第一个是 $Access Method$ 但后者是$Mutator Method$原来的对象发生了改变。
 
+## 4.3 Multiple source usage
 
 ### 4.3.2 Use of Multiple Source Files
 > 我们这里先考虑一下类Unix系统中的`make`的逻辑，在之前写`makefile`文件中的时候，学习了一下`make`的逻辑，是将指定的一些`.h`,`.c`等目标待文件编译文件放在一起，等待如果某些`.h/.c`文件发生改动的时候，就会单独的重新将这些文件编译进，而不是整体编译。有点类似`cache`的作用。就是为了节约性能，已经编译过的未改变的内容不变。
