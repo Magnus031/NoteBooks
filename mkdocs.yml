@@ -11,6 +11,7 @@ nav:
       - JS : Tutorial/JS&TS/JS.md
       - TS : Tutorial/JS&TS/TS.md
     - Java :
+      - 易错点总结 : Tutorial/Java/Java1.md
       - Objects and classes : Tutorial/Java/Java4.md
       - Inheritance : Tutorial/Java/Java5.md
       - Interface : Tutorial/Java/Java6.md

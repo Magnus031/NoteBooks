@@ -22,6 +22,7 @@ When an error occurs that, you might want to 2 cases:
 
 上面的类分成了两部分，我们重点考虑的是`Exception`，首先，这里的`Error`其实大概率是不用考虑的，它更多是来自内在的错误，亦或者说是来自`Java runtime System`中的错误。而`Exception`中的`RuntimeException`才是我们真正平时编码时候发生的错误。
 对于`RuntimeException`发生的一些常见的错误：
+
 - A bad cast 类型转化错误
 - An out-of-bounds array access 数组边界越界
 - A null pointer acess 获取了一个`null`对象

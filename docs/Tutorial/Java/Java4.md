@@ -53,7 +53,7 @@ The above is the difference between **C++** and **Java** in the object referrenc
 - Public : The keyword public means that any method in any class can call this method.
     所有任何类的任何方法都可以调用这个方法。
 - private : The keyword Make sure that the only methods that can access these instance fields are the methods of the inner class itself.<span style="color : red">No outside method can read or write to these method,including the Derivative class(衍生类)</span>
-- protected : The keyword Make sure that the methods can be accessed by any class <span style="color : red">in the same class</span>，also including the Derivative class.
+- protected : The keyword Make sure that the methods can be accessed by any class <span style="color : red">in the same package</span>，also including the Derivative class.
 
 
 ### 4.3.5 Declaring Local Variabale with var
