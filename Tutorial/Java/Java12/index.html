@@ -839,6 +839,30 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#126-threads-pool" class="md-nav__link">
+    <span class="md-ellipsis">
+      12.6 Threads Pool
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.6 Threads Pool">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduce" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduce
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -968,6 +992,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../LeetCode/Heap/Heap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    堆
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../LeetCode/Tree/BinaryTree/" class="md-nav__link">
         
   
@@ -1071,6 +1116,70 @@
   
   <span class="md-ellipsis">
     TCP 层
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    设计模式
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            设计模式
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS-courses/DesignPattern/DesignPattern/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    设计模式概况
   </span>
   
 
@@ -1559,6 +1668,30 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#126-threads-pool" class="md-nav__link">
+    <span class="md-ellipsis">
+      12.6 Threads Pool
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12.6 Threads Pool">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduce" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduce
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1979,6 +2112,13 @@ called the <code>signalAll</code> method on the same condition.</p>
 </blockquote>
 <h3 id="1253-atomic-update-of-map-entries">12.5.3 Atomic update of map entries</h3>
 <p>引入了 <code>map.compute(word,(k,v)-&gt;v == null ? 1 : v+1)</code> 的原子操作，避免了旧版本的 <code>replace</code> 的使用.</p>
+<h2 id="126-threads-pool">12.6 Threads Pool</h2>
+<blockquote>
+<p>线程池</p>
+<p>我们考虑一个很现实的问题，对于创建一个新的进程是一件很麻烦的时候，因为你需要跟操作系统进行交互。但是我们又会经常的遇到那种具有很大数量的<code>short-lived</code> 线程，这种时候我们就选择了一种叫做<strong>线程池</strong>的方式。</p>
+</blockquote>
+<h3 id="introduce">Introduce</h3>
+<p>线程池中存在很多预留的线程等待调度和运行，并且提供给它一个 <code>Runnable</code> 接口，只要<code>run</code>方法存在，那么这个线程就不会消亡，只是在队列中等待被调度。</p>
 <style>
     img{
         margin-left : auto;
