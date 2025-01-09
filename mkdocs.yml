@@ -22,11 +22,13 @@ nav:
     - 动态规划 : LeetCode/DP/DP.md
     - 贪心算法 : LeetCode/Greedy/Greedy.md
     - 滑动窗口 : LeetCode/windows/windows.md
+    - 堆 : LeetCode/Heap/Heap.md
     - 树 : LeetCode/Tree/BinaryTree.md
   - CS : 
     - 计网 : 
       - TCP 层 : CS-courses/CN/TCP.md
-    
+    - 设计模式 :
+      - 设计模式概况 : CS-courses/DesignPattern/DesignPattern.md
   - 技术 : 
     - Web :
       - 异步 : Tech/Web/Asyn.md 
@@ -45,6 +47,8 @@ extra_javascript:
 
 
 markdown_extensions:
+  - extra
+  - tables
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.highlight:

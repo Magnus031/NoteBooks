@@ -344,6 +344,20 @@ There is one situation that we no use `lock` or the `volatile` modifier, that it
 引入了 `map.compute(word,(k,v)->v == null ? 1 : v+1)` 的原子操作，避免了旧版本的 `replace` 的使用.
 
 
+## 12.6 Threads Pool
+> 线程池
+> 
+我们考虑一个很现实的问题，对于创建一个新的进程是一件很麻烦的时候，因为你需要跟操作系统进行交互。但是我们又会经常的遇到那种具有很大数量的`short-lived` 线程，这种时候我们就选择了一种叫做**线程池**的方式。
+
+### Introduce
+
+线程池中存在很多预留的线程等待调度和运行，并且提供给它一个 `Runnable` 接口，只要`run`方法存在，那么这个线程就不会消亡，只是在队列中等待被调度。
+
+
+
+
+
+
 
 <style>
     img{
