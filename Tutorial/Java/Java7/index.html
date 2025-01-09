@@ -416,6 +416,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../Java1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    易错点总结
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../Java4/" class="md-nav__link">
         
   
@@ -1309,11 +1330,13 @@
 <p>事实上，我们抛出的<code>exception</code>对象是一个来自于<code>Throwable</code>类的实例
 <img alt="P1" src="../assets/J7-P1.jpg" /></p>
 <p>上面的类分成了两部分，我们重点考虑的是<code>Exception</code>，首先，这里的<code>Error</code>其实大概率是不用考虑的，它更多是来自内在的错误，亦或者说是来自<code>Java runtime System</code>中的错误。而<code>Exception</code>中的<code>RuntimeException</code>才是我们真正平时编码时候发生的错误。
-对于<code>RuntimeException</code>发生的一些常见的错误：
-- A bad cast 类型转化错误
-- An out-of-bounds array access 数组边界越界
-- A null pointer acess 获取了一个<code>null</code>对象
-而 <code>FileCoundNOTFind</code>这种错误并不是发生在你代码上的逻辑/语法错误，而是在尝试打开文件的时候就已经发生错误了。</p>
+对于<code>RuntimeException</code>发生的一些常见的错误：</p>
+<ul>
+<li>A bad cast 类型转化错误</li>
+<li>An out-of-bounds array access 数组边界越界</li>
+<li>A null pointer acess 获取了一个<code>null</code>对象
+而 <code>FileCoundNOTFind</code>这种错误并不是发生在你代码上的逻辑/语法错误，而是在尝试打开文件的时候就已经发生错误了。</li>
+</ul>
 <h3 id="checked-or-unchecked">checked or unchecked</h3>
 <p>我们这里考虑<code>checked</code>的含义，它表示的是在程序编译运行前就需要进行的检查，官方的定义是：</p>
 <blockquote>
