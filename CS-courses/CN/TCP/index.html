@@ -1109,6 +1109,21 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      应用层
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="应用层">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
   <a href="#www" class="md-nav__link">
     <span class="md-ellipsis">
@@ -1733,6 +1748,21 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      应用层
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="应用层">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
   <a href="#www" class="md-nav__link">
     <span class="md-ellipsis">
@@ -1854,12 +1884,14 @@
 这些服务器程序在UNIX系统中被称为是守护进程， httpd sshd 启动一个就表示它们接收客户端请求的inetd（互联网守护进程），超级守护进程会在接收到客户端请求以后创建新的进程并转化为其他的守护进程。</p>
 <p>TCP 和 UDP 两者各有利弊，没有谁说有绝对的优与劣，只是实用场景不同，用到的时候也不同。</p>
 <h5 id="_4">数据的区分</h5>
-<p>因为可能出现两个数据包的 <strong>source port</strong>和<strong>destination port</strong> 完全相同的情况，就不能简单的通过端口号来区分，有的时候甚至两个IP地址也都是完全一样的，但是所用的传输协议不一样，可能是TCP也可能是UDP。因此，我们要保证5样东西完全一样，才能说明是一个通信。
-- 源IP地址
-- 目标IP地址
-- 协议号 TCP/UDP
-- 源端口号
-- 目标端口号</p>
+<p>因为可能出现两个数据包的 <strong>source port</strong>和<strong>destination port</strong> 完全相同的情况，就不能简单的通过端口号来区分，有的时候甚至两个IP地址也都是完全一样的，但是所用的传输协议不一样，可能是TCP也可能是UDP。因此，我们要保证5样东西完全一样，才能说明是一个通信。</p>
+<ul>
+<li>源IP地址</li>
+<li>目标IP地址</li>
+<li>协议号 TCP/UDP</li>
+<li>源端口号</li>
+<li>目标端口号</li>
+</ul>
 <h5 id="_5">如何定义端口号</h5>
 <h6 id="_6">标准既定端口号</h6>
 <p>也就是说每个应用程序都是有它既定的端口号，尤其是一些HTTP,TELNET,FTP等的端口号都是固定的。(Well-Known Port Number)</p>
@@ -1891,11 +1923,13 @@
 <p><img alt="P6" src="../asset/CN-P6.jpg" /></p>
 <h5 id="tcp_3">TCP连接的四次挥手</h5>
 <p><img alt="P8" src="../asset/CN-P8.jpg" /></p>
-<p>TCP的<strong>四次挥手</strong>和<strong>三次握手</strong>本质一样，其实就是应答交互。那么四次挥手就是客户端和服务端之间发送4个包进行断开连接的确认。
-- FIN 第一次挥手，是客户端向服务端进行挥手。发出断开连接的请求
-- ACK 第二次挥手，是服务器端向客户端进行的挥手，发出请求的应答，同意断开连接。
-- FIN 第三次挥手，是服务器向客户端的挥手，发出请求，让客户端可以进行断开连接了。
-- ACK 第四次挥手，是客户端向服务器端进行的挥手，表示的是同意了请求，正式断开连接。</p>
+<p>TCP的<strong>四次挥手</strong>和<strong>三次握手</strong>本质一样，其实就是应答交互。那么四次挥手就是客户端和服务端之间发送4个包进行断开连接的确认。</p>
+<ul>
+<li>FIN 第一次挥手，是客户端向服务端进行挥手。发出断开连接的请求</li>
+<li>ACK 第二次挥手，是服务器端向客户端进行的挥手，发出请求的应答，同意断开连接。</li>
+<li>FIN 第三次挥手，是服务器向客户端的挥手，发出请求，让客户端可以进行断开连接了。</li>
+<li>ACK 第四次挥手，是客户端向服务器端进行的挥手，表示的是同意了请求，正式断开连接。</li>
+</ul>
 <h5 id="_10">滑动窗口机制</h5>
 <p><img alt="P7" src="../asset/CN-P7.jpg" /></p>
 <p>因为如果我们每次只发一个段，还要等待完成应答之后才能继续发送，这样会在网络拥堵的时候造成性能大幅下降。因为会由于等待的时间延长而下降。我们这里考虑开个窗口<strong>无需等待确认应答而可以继续发送数据的最大值，同时窗口中要记得保留窗口内的数据直到接收到了成功传输的应答的时候才可以停止。</strong></p>
@@ -1965,7 +1999,7 @@
 </ul>
 </li>
 </ul>
-<p>### 应用层</p>
+<h3 id="_14">应用层</h3>
 <blockquote>
 <p>The Application layer here included 3 layers in the OSI </p>
 </blockquote>
