@@ -19,25 +19,69 @@ nav:
       - Generic Programming : Tutorial/Java/Java8.md
       - Collections : Tutorial/Java/Java9.md
       - Concurrency : Tutorial/Java/Java12.md
+      - 特性 : 
+        - SPI:  Tutorial/Java/Feature/SPI.md
+        - 代理 : Tutorial/Java/Feature/Proxy.md
+      - JVM相关 :
+        - Introduce : Tutorial/Java/JVM/introduce.md
+        - 内存与垃圾回收 : Tutorial/Java/JVM/Memory.md
+        - 字节码与类的加载 : Tutorial/Java/JVM/Byte.md
+        - 性能监控与调优 : Tutorial/Java/JVM/Watch.md
+    - Go :
+      - 介绍 : Tutorial/Go/Introduce.md
+  
   - 数据结构与算法: 
     - 动态规划 : LeetCode/DP/DP.md
     - 贪心算法 : LeetCode/Greedy/Greedy.md
     - 滑动窗口 : LeetCode/windows/windows.md
+    - 字符串 : LeetCode/String/String.md
+    - 链表 : LeetCode/List/List.md
     - 堆 : LeetCode/Heap/Heap.md
     - 树 : LeetCode/Tree/BinaryTree.md
+    - 栈 : LeetCode/Stack/Stack.md
+    - 智力题 : LeetCode/智力题/Smart.md
   - CS : 
     - 计网 : 
+      - 易错点 : CS-courses/CN/EasytoMistake.md
       - TCP 层 : CS-courses/CN/TCP.md
+      - http 协议 : CS-courses/CN/Http.md 
     - 设计模式 :
       - 设计模式概况 : CS-courses/DesignPattern/DesignPattern.md
   - 技术 : 
     - Web :
       - 异步 : Tech/Web/Asyn.md 
+      - cookie,session,token : Tech/Web/cookie.md
+    - 并发 :
+      - 并发编程 : Tech/Concurrency/Concurrency.md
+      - 锁 : Tech/Concurrency/Lock.md
 
   - Economic :  Economic-Courses
-  - 讨饭经历 : Interview 
+  - 讨饭经历 : 
+    - 面经 : 
+      - 数据库 : 
+        - 数据库八股 : Interview/InExperience/mysql/mysql.md
+      - Java : 
+        - Java八股 : Interview/InExperience/Java/Java.md
+        - Java并发 : Interview/InExperience/Java/concurrency.md
+    - 项目 : 
+      - 基于RPC项目:
+        - RPC 项目介绍: Interview/Project/RPCFrameWork/Introduce.md
+        - RPC 场景题: Interview/Project/RPCFrameWork/RPC.md
+        - RPC 项目总结: Interview/Project/RPCFrameWork/Summary.md
+    - 复盘 : 
+      - 一面 : 
+        - 1月20日 : Interview/Recall/First-Interview/1-20.md 
   - 一些看过的书 : Books
   - 拙见 : Experiences
+  - 源码解析 : 
+    - Java :
+      - Timer : SourceCode/Java/Timer.md
+      - Collections: 
+        - List :
+          - ArrayList : SourceCode/Java/Collections/List/ArrayList.md
+        - Map :
+          - HashMap : SourceCode/Java/Collections/Map/HashMap.md
+
 theme: 
   name : material
 

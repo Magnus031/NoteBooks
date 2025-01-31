@@ -270,6 +270,10 @@ class Bank
 
 `wait()` 和 `notifyAll()` 就分别是将线程加入 `waiting list` 和 唤醒所有在 `waiting on the condition threads`.
 
+`join` method in the `Thread` class is used to pause the execution of the current thread until the specified thread has finished executing. This ensure that one thread must wait for another to complete before continuing.
+
+
+
 ### 12.4.6 Synchronized Blocks
 > Another way to enter acquiring the lock;
 

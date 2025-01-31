@@ -106,9 +106,23 @@
 
     要与 c/cpp 区分开来，`Java` 中的字符串不以`null` 结尾
 
+- **[T] The member inner class can access all data member of the outer class.**
 
+- **[T] A listener can be register into several sources**
 
+    这个很好理解，就是一个监听器可以监听多个事件源。
 
+- **[F] A private method can be overridden by its subclass**
+
+    这个就是需要理解 `public` 和 `private`的本质了，对于`private` method来说，是对其他类都**不可见**，那么你的子类怎么可能重写这个方法呢？
+
+- **[F] For `final int[] ar = new int[10]` we cannot modify the content of the array.**
+
+    `final` 修饰的是引用，而不是引用指向的对象。所以这个数组是可以被修改的。但是它不能指向其他的对象。也就是直接赋值的时候不能指向别的对象了。
+
+- **[F] `String s1 = new String("Hello");String s2 = new String("Hello");System.out.println(s1==s2)` the output answer is true**
+
+    In Java,the `==` operator checks for reference equality when used with object references. This means it checks whether both references point to the exact same object **in memory.**
 ## 选择题
 
 - 

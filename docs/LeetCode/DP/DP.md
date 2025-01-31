@@ -338,6 +338,54 @@ public:
 
 ```
 
+### 6 求矩形的最大面积
+<a href = "https://leetcode.cn/problems/largest-rectangle-in-histogram/description/?envType=study-plan-v2&envId=top-100-liked">题目来源</a>
+
+![P1](./assets/dp-p1.jpg)
+
+#### 题解 DP
+> 时间复杂度 $O(N^2)$
+Leetcode 给的既定时间复杂度是 $O(N)$ 所以这个动态规划的解法不是最优解。我们等下会考虑单调栈来解决这个问题。
+
+看到这题很自然的想法就是开一个二维数字 `rectArray[len][len]`,其中的每个元素`rectArray[i][j]`,记录的是从`i`到`j`的最大可兼容的宽度，因为我们要求的是面积，已经知道的宽度是`j-i+1`,所以面积就可以很自然的知道。所以可以得到一个状态转移的方程:
+
+$$
+rectArray[i][j] = \min\{rectArray[i][j-1],height[j]\}
+$$
+
+然后每次的进行最大面积的更新即可。但很显然这个算法的时间复杂度是$O(N^2)$,不是最优解。我们会在Stack的解法中进行优化，我们选择单调栈来解决这个问题。
+#### Code 
+```cpp
+class Solution {
+public:
+    int largestRectangleArea(vector<int>& heights) {
+        int len = heights.size();
+        vector<int> square;
+        square.resize(len);
+        int maxSquare = 0;
+        for(int i=0;i<len;i++){
+            square[i] = heights[i];
+            if(heights[i]>maxSquare)
+                maxSquare = heights[i];
+        }
+        // start represents the 2-arrays start coordinates;
+        int start = 0;
+        for(;start<len;start++){
+            for(int j=start+1;j<len;j++){
+                if(j == start+1){
+                    square[j-1] = heights[j-1];
+                }
+                square[j] = min(square[j-1],heights[j]); 
+                int s = (j-start+1)*(square[j]);
+                if(s>maxSquare)
+                    maxSquare = s;
+            }
+        }
+        return maxSquare;
+    }
+};
+```
+
 
 
 
