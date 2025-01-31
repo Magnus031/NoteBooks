@@ -8,25 +8,25 @@
       
       
       
-        <link rel="canonical" href="https://github.com/Magnus031/NoteBooks/Tutorial/JS%26TS/JS/">
+        <link rel="canonical" href="https://github.com/Magnus031/NoteBooks/Interview/InExperience/Java/concurrency/">
       
       
-        <link rel="prev" href="../../../about/">
+        <link rel="prev" href="../Java/">
       
       
-        <link rel="next" href="../TS/">
+        <link rel="next" href="../../../Project/RPCFrameWork/Introduce/">
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
     
     
       
-        <title>JS - Magnus的小站</title>
+        <title>Java并发 - Magnus的小站</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.6f8fc17f.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.6f8fc17f.min.css">
       
       
 
@@ -45,7 +45,7 @@
       
     
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#javascript" class="md-skip">
+        <a href="#_1" class="md-skip">
           Skip to content
         </a>
       
@@ -80,7 +80,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Magnus的小站" class="md-header__button md-logo" aria-label="Magnus的小站" data-md-component="logo">
+    <a href="../../../.." title="Magnus的小站" class="md-header__button md-logo" aria-label="Magnus的小站" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              JS
+              Java并发
             
           </span>
         </div>
@@ -187,7 +187,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Magnus的小站" class="md-nav__button md-logo" aria-label="Magnus的小站" data-md-component="logo">
+    <a href="../../../.." title="Magnus的小站" class="md-nav__button md-logo" aria-label="Magnus的小站" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -217,7 +217,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -237,7 +237,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../about/" class="md-nav__link">
+      <a href="../../../../about/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -254,19 +254,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -280,7 +278,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             语言
@@ -291,19 +289,17 @@
                 
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
         
           
           <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
@@ -317,7 +313,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_1">
             <span class="md-nav__icon md-icon"></span>
             JS&TS
@@ -328,30 +324,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    JS
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../../Tutorial/JS%26TS/JS/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -360,176 +336,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      正则表达式
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="正则表达式">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#regular-expression-modifiers" class="md-nav__link">
-    <span class="md-ellipsis">
-      Regular Expression Modifiers
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bom" class="md-nav__link">
-    <span class="md-ellipsis">
-      BOM编程
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="BOM编程">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#bom_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      BOM常见编程
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="BOM常见编程">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      三种弹窗方式
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      定时任务
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#history" class="md-nav__link">
-    <span class="md-ellipsis">
-      history 属性 访问历史
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#location" class="md-nav__link">
-    <span class="md-ellipsis">
-      location
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#session-storage" class="md-nav__link">
-    <span class="md-ellipsis">
-      session Storage 会话级数据
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#local-storage" class="md-nav__link">
-    <span class="md-ellipsis">
-      local Storage 持久级存储数据
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dom" class="md-nav__link">
-    <span class="md-ellipsis">
-      DOM 编程
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="DOM 编程">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#dom_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      DOM 获取元素的几种方式
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dom_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      DOM 操纵元素
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dom_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      DOM 中的增删元素
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -542,7 +348,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../TS/" class="md-nav__link">
+      <a href="../../../../Tutorial/JS%26TS/TS/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -606,7 +412,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Java/Java1/" class="md-nav__link">
+      <a href="../../../../Tutorial/Java/Java1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -627,7 +433,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Java/Java4/" class="md-nav__link">
+      <a href="../../../../Tutorial/Java/Java4/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -648,7 +454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Java/Java5/" class="md-nav__link">
+      <a href="../../../../Tutorial/Java/Java5/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -669,7 +475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Java/Java6/" class="md-nav__link">
+      <a href="../../../../Tutorial/Java/Java6/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -690,7 +496,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Java/Java7/" class="md-nav__link">
+      <a href="../../../../Tutorial/Java/Java7/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -711,7 +517,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Java/Java8/" class="md-nav__link">
+      <a href="../../../../Tutorial/Java/Java8/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -732,7 +538,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Java/Java9/" class="md-nav__link">
+      <a href="../../../../Tutorial/Java/Java9/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -753,7 +559,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Java/Java12/" class="md-nav__link">
+      <a href="../../../../Tutorial/Java/Java12/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -809,7 +615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Java/Feature/SPI/" class="md-nav__link">
+      <a href="../../../../Tutorial/Java/Feature/SPI/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -830,7 +636,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Java/Feature/Proxy/" class="md-nav__link">
+      <a href="../../../../Tutorial/Java/Feature/Proxy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -894,7 +700,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Java/JVM/introduce/" class="md-nav__link">
+      <a href="../../../../Tutorial/Java/JVM/introduce/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -915,7 +721,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Java/JVM/Memory/" class="md-nav__link">
+      <a href="../../../../Tutorial/Java/JVM/Memory/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -936,7 +742,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Java/JVM/Byte/" class="md-nav__link">
+      <a href="../../../../Tutorial/Java/JVM/Byte/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -957,7 +763,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Java/JVM/Watch/" class="md-nav__link">
+      <a href="../../../../Tutorial/Java/JVM/Watch/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1029,7 +835,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Go/Introduce/" class="md-nav__link">
+      <a href="../../../../Tutorial/Go/Introduce/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1100,7 +906,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../LeetCode/DP/DP/" class="md-nav__link">
+      <a href="../../../../LeetCode/DP/DP/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1121,7 +927,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../LeetCode/Greedy/Greedy/" class="md-nav__link">
+      <a href="../../../../LeetCode/Greedy/Greedy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1142,7 +948,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../LeetCode/windows/windows/" class="md-nav__link">
+      <a href="../../../../LeetCode/windows/windows/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1163,7 +969,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../LeetCode/String/String/" class="md-nav__link">
+      <a href="../../../../LeetCode/String/String/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1184,7 +990,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../LeetCode/List/List/" class="md-nav__link">
+      <a href="../../../../LeetCode/List/List/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1205,7 +1011,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../LeetCode/Heap/Heap/" class="md-nav__link">
+      <a href="../../../../LeetCode/Heap/Heap/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1226,7 +1032,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../LeetCode/Tree/BinaryTree/" class="md-nav__link">
+      <a href="../../../../LeetCode/Tree/BinaryTree/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1247,7 +1053,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../LeetCode/Stack/Stack/" class="md-nav__link">
+      <a href="../../../../LeetCode/Stack/Stack/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1268,7 +1074,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../LeetCode/%E6%99%BA%E5%8A%9B%E9%A2%98/Smart/" class="md-nav__link">
+      <a href="../../../../LeetCode/%E6%99%BA%E5%8A%9B%E9%A2%98/Smart/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1366,7 +1172,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../CS-courses/CN/EasytoMistake/" class="md-nav__link">
+      <a href="../../../../CS-courses/CN/EasytoMistake/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1387,7 +1193,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../CS-courses/CN/TCP/" class="md-nav__link">
+      <a href="../../../../CS-courses/CN/TCP/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1408,7 +1214,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../CS-courses/CN/Http/" class="md-nav__link">
+      <a href="../../../../CS-courses/CN/Http/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1472,7 +1278,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../CS-courses/DesignPattern/DesignPattern/" class="md-nav__link">
+      <a href="../../../../CS-courses/DesignPattern/DesignPattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1578,7 +1384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Tech/Web/Asyn/" class="md-nav__link">
+      <a href="../../../../Tech/Web/Asyn/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1599,7 +1405,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Tech/Web/cookie/" class="md-nav__link">
+      <a href="../../../../Tech/Web/cookie/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1663,7 +1469,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Tech/Concurrency/Concurrency/" class="md-nav__link">
+      <a href="../../../../Tech/Concurrency/Concurrency/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1684,7 +1490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Tech/Concurrency/Lock/" class="md-nav__link">
+      <a href="../../../../Tech/Concurrency/Lock/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1720,7 +1526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Economic-Courses" class="md-nav__link">
+      <a href="../../../../Economic-Courses" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1737,17 +1543,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
         
           
           <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
@@ -1761,7 +1569,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             讨饭经历
@@ -1772,17 +1580,19 @@
                 
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_1" checked>
         
           
           <label class="md-nav__link" for="__nav_8_1" id="__nav_8_1_label" tabindex="0">
@@ -1796,7 +1606,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_8_1">
             <span class="md-nav__icon md-icon"></span>
             面经
@@ -1845,7 +1655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Interview/InExperience/mysql/mysql/" class="md-nav__link">
+      <a href="../../mysql/mysql/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1871,17 +1681,19 @@
                 
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_1_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_1_2" checked>
         
           
           <label class="md-nav__link" for="__nav_8_1_2" id="__nav_8_1_2_label" tabindex="0">
@@ -1895,7 +1707,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_1_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_1_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_8_1_2">
             <span class="md-nav__icon md-icon"></span>
             Java
@@ -1909,7 +1721,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Interview/InExperience/Java/Java/" class="md-nav__link">
+      <a href="../Java/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1927,10 +1739,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../Interview/InExperience/Java/concurrency/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Java并发
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1939,6 +1771,50 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      面试题
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="面试题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q1-java" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q1 : Java 如何开启线程，怎么保证线程安全呢？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2037,7 +1913,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Interview/Project/RPCFrameWork/Introduce/" class="md-nav__link">
+      <a href="../../../Project/RPCFrameWork/Introduce/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2058,7 +1934,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Interview/Project/RPCFrameWork/RPC/" class="md-nav__link">
+      <a href="../../../Project/RPCFrameWork/RPC/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2079,7 +1955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Interview/Project/RPCFrameWork/Summary/" class="md-nav__link">
+      <a href="../../../Project/RPCFrameWork/Summary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2186,7 +2062,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Interview/Recall/First-Interview/1-20/" class="md-nav__link">
+      <a href="../../../Recall/First-Interview/1-20/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2230,7 +2106,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Books" class="md-nav__link">
+      <a href="../../../../Books" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2250,7 +2126,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Experiences" class="md-nav__link">
+      <a href="../../../../Experiences" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2340,7 +2216,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../SourceCode/Java/Timer/" class="md-nav__link">
+      <a href="../../../../SourceCode/Java/Timer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2431,7 +2307,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../SourceCode/Java/Collections/List/ArrayList/" class="md-nav__link">
+      <a href="../../../../SourceCode/Java/Collections/List/ArrayList/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2495,7 +2371,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../SourceCode/Java/Collections/Map/HashMap/" class="md-nav__link">
+      <a href="../../../../SourceCode/Java/Collections/Map/HashMap/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2567,145 +2443,19 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      正则表达式
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="正则表达式">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#regular-expression-modifiers" class="md-nav__link">
-    <span class="md-ellipsis">
-      Regular Expression Modifiers
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bom" class="md-nav__link">
-    <span class="md-ellipsis">
-      BOM编程
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="BOM编程">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#bom_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      BOM常见编程
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="BOM常见编程">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      三种弹窗方式
+      面试题
     </span>
   </a>
   
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      定时任务
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#history" class="md-nav__link">
-    <span class="md-ellipsis">
-      history 属性 访问历史
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#location" class="md-nav__link">
-    <span class="md-ellipsis">
-      location
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#session-storage" class="md-nav__link">
-    <span class="md-ellipsis">
-      session Storage 会话级数据
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#local-storage" class="md-nav__link">
-    <span class="md-ellipsis">
-      local Storage 持久级存储数据
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dom" class="md-nav__link">
-    <span class="md-ellipsis">
-      DOM 编程
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="DOM 编程">
+    <nav class="md-nav" aria-label="面试题">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#dom_1" class="md-nav__link">
+  <a href="#q1-java" class="md-nav__link">
     <span class="md-ellipsis">
-      DOM 获取元素的几种方式
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dom_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      DOM 操纵元素
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dom_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      DOM 中的增删元素
+      Q1 : Java 如何开启线程，怎么保证线程安全呢？
     </span>
   </a>
   
@@ -2734,310 +2484,31 @@
   
 
 
-<h1 id="javascript"><center>JavaScript</center></h1>
-<p>事件驱动</p>
-<h2 id="_1">正则表达式</h2>
-<blockquote>
-<p>正则表达式是描述字符模式的对象。正则表达式用于对字符串模式匹配及检索替代，是对字符串执行匹配的强大工具。</p>
-</blockquote>
-<p>In JS,regular expressions are represented by RegExp objects.RegExp objects may be created with the <code>RegExp()</code> constructor, of course, but they are more often created using a special literal syntax.</p>
+<h1 id="_1"><center>并发</center></h1>
+<h2 id="_2">面试题</h2>
+<h3 id="q1-java">Q1 : Java 如何开启线程，怎么保证线程安全呢？</h3>
+<p>首先，我们这里提一下<strong>线程与进程</strong>的区别：</p>
+<p>进程是操作系统的资源分配的最小单元，线程是操作系统的任务调度的最小单元。一个进程可以包含多个线程，线程共享进程的资源。</p>
+<p>我们在 Java 中的时候，我们一般情况下有两种方法开启线程:</p>
 <ul>
+<li>使用 <code>Thread</code> 类，我们只需要继承<code>Thread</code>,重写 <code>run()</code> 方法即可</li>
 <li>
-<p><code>let pattern = new RegExp("s$")</code></p>
-<p>-&gt; It represents all the strings that ends with the letter <code>s</code>
-- <code>$</code>, a special meta-character that match the end  of  a substring.</p>
+<p>使用 <code>Runnable</code> 接口，我们只需要实现 <code>Runnable</code> 接口，重写 <code>run()</code> 方法即可</p>
+</li>
+<li>
+<p>实现 <code>Callable</code> 接口，重写 <code>call()</code> 方法，可以有返回值</p>
+</li>
+<li>
+<p>我们使用线程池来进行线程的管理，这样可以减少线程的创建和销毁的开销</p>
 </li>
 </ul>
-<p>The Syntax is <code>/pattern/modifiers</code>
-- Example : 
-  - <code>/w3schools/i</code> 表示的是<code>w3schools</code> 这个需要被查找的字符串，<code>i</code>表示的是忽略大小写
-    <code>/w3schools/</code> represents that <strong>matches any string that contains</strong> the substring "w3school"/</p>
+<p>以上我们提到了有四种方法来开启线程，其中最前面的两种是最常见的办法。</p>
+<p>我们下面来看一下如何保证线程安全：</p>
+<p>一样的，思路有两种:</p>
 <ul>
-<li><code>search()</code><blockquote>
-<p>这个方法的作用是利用一个表达式来查找和返回找到的字符串的位置</p>
-</blockquote>
-</li>
+<li>使用 <code>Java</code> 的 <code>Synchornized</code> 关键字，对某对象进行同步锁保护，始终保持只有一个线程在执行</li>
+<li>使用 <code>Java</code> 内置的 <code>Lock</code> 接口，它提供了更多的方法来控制线程的同步 </li>
 </ul>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Visit W3Schools!&quot;</span><span class="p">;</span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">text</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span><span class="w"> </span><span class="c1">// 6</span>
-</code></pre></div></td></tr></table></div>
-<ul>
-<li><code>replace()</code><blockquote>
-<p>This method replaces a specified value with another value in string</p>
-</blockquote>
-</li>
-</ul>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Visit Microsoft!&quot;</span><span class="p">;</span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">reuslt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">text</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s2">&quot;Microsoft&quot;</span><span class="p">,</span><span class="s2">&quot;W3Schools&quot;</span><span class="p">);</span>
-</code></pre></div></td></tr></table></div>
-<p>下面，我们结合一下RegExp来进行查找
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Visit Microsoft!&quot;</span><span class="p">;</span>
-<span class="c1">// 将字符串中所有包含 忽略大小写的 `microsoft` 的字符串替换成`W3Schools`</span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">text</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/microsoft/i</span><span class="p">,</span><span class="s2">&quot;W3Schools&quot;</span><span class="p">);</span>
-</code></pre></div></td></tr></table></div></p>
-<h4 id="regular-expression-modifiers">Regular Expression Modifiers</h4>
-<ul>
-<li><code>i</code> Perform case-intensitive matching 忽略大小写</li>
-<li>
-<p><code>g</code> Perform a global match (find all) 寻找所有
-这个怎么理解呢？就是将待查找的字符串中的所有符合标准的字符串都查找出来</p>
-</li>
-<li>
-<p><code>m</code> Perform multiline matching
-用于多行字符串中的查找， 并且<code>^</code> 和 <code>$</code> 应该匹配字符串的开始和结束
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;hello\nworld&quot;</span><span class="p">;</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">regex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sr">/^world/m</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">regex</span><span class="p">));</span><span class="w"> </span><span class="c1">// 输出 [&quot;world&quot;]</span>
-</code></pre></div></td></tr></table></div></p>
-</li>
-<li>
-<p><code>d</code> perform stat and end matching</p>
-</li>
-</ul>
-<h2 id="bom">BOM编程</h2>
-<blockquote>
-<p>Browser Object Model 浏览器对象模型</p>
-</blockquote>
-<ul>
-<li>BOM 是由一系列对象组成，访问、控制、修改浏览器属性和方法（通过window对象及属性的一系列方法控制浏览器行为的一种编程）</li>
-</ul>
-<p><img alt="P2" src="../assets/JS-P2.jpg" /></p>
-<p><img alt="P3" src="../assets/JS-P3.jpg" />
-我们比较上下两个图分析，可以发现一个网页其实是由很多个<code>window</code>对象组成的
-  - <code>history</code> 对象 访问浏览器的浏览历史
-  - <code>location</code> 对象 浏览器的地址栏
-  - <code>console</code> 对象 浏览器开发者工具的控制台
-  - <code>screen</code> 对象 代表屏幕
-  - <code>document</code> 对象 代表的是浏览器打开的html文档
-  - <code>navigator</code> 对象 当前浏览器软件本身<br />
-  - <code>sessionStorage</code> 对象 会话级存储
-  - <code>localStorage</code> 对象 持久级存储
-<code>window</code> 对象 API
-<code>window</code> 对象属性 API 
-通过<code>window</code>对象及其属性的API，控制浏览器的属性和行为</p>
-<p>我们其实就是对不同的对象进行编辑工作 那么BOM编程其实就是通过<code>window</code>对象及属性来控制浏览器行为的一种编程。</p>
-<h3 id="bom_1">BOM常见编程</h3>
-<h4 id="_2">三种弹窗方式</h4>
-<ul>
-<li><code>alert</code></li>
-<li><code>prompt</code></li>
-<li><code>confirm</code><blockquote>
-<p><code>window</code> 对象无需自己创建，是自带的</p>
-</blockquote>
-</li>
-</ul>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">fun1</span><span class="p">(){</span>
-<span class="w">    </span><span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">);</span>
-
-<span class="w">    </span><span class="c1">// res 是输入的内容</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">window</span><span class="p">.</span><span class="nx">prompt</span><span class="p">(</span><span class="s2">&quot;hello,请输入姓名&quot;</span><span class="p">);</span>
-<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span>
-
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">res1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">window</span><span class="p">.</span><span class="nx">confirm</span><span class="p">(</span><span class="s2">&quot;确定要删除吗?&quot;</span><span class="p">);</span>
-<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res1</span><span class="p">)</span>
-
-<span class="p">}</span>
-</code></pre></div></td></tr></table></div>
-<h4 id="_3">定时任务</h4>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">func4</span><span class="p">(){</span>
-<span class="w">    </span><span class="nb">window</span><span class="p">.</span><span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
-<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="p">},</span><span class="mf">2000</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></table></div>
-<h4 id="history">history 属性 访问历史</h4>
-<ul>
-<li>上一页</li>
-<li>下一页</li>
-</ul>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">funA</span><span class="p">(){</span>
-<span class="w">    </span><span class="c1">// 向前翻页</span>
-<span class="w">    </span><span class="nx">history</span><span class="p">.</span><span class="nx">back</span><span class="p">()</span>
-<span class="p">}</span>
-
-<span class="kd">function</span><span class="w"> </span><span class="nx">funcB</span><span class="p">(){</span>
-<span class="w">    </span><span class="c1">// 向前翻页</span>
-<span class="w">    </span><span class="nx">history</span><span class="p">.</span><span class="nx">forward</span><span class="p">()</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></table></div>
-<h4 id="location">location</h4>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">func</span><span class="p">(){</span>
-<span class="w">    </span><span class="c1">// 修改地址栏中的URL -&gt; 超链接</span>
-<span class="w">    </span><span class="c1">// The fields but not method;</span>
-<span class="w">    </span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;http://www.atguigu.com&quot;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></table></div>
-<h4 id="session-storage">session Storage 会话级数据</h4>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">funcE</span><span class="p">(){</span>
-<span class="w">    </span><span class="nb">window</span><span class="p">.</span><span class="nx">sessionStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s2">&quot;keyA&quot;</span><span class="p">,</span><span class="s2">&quot;valueA&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="c1">// 键名</span>
-<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sessionStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s2">&quot;keyA&quot;</span><span class="p">))</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></table></div>
-<blockquote>
-<p>浏览器重启的时候，<code>session Storage</code>中的数据就会被清空，但是<code>local Storage</code>中的数据仍然会存在</p>
-</blockquote>
-<h4 id="local-storage">local Storage 持久级存储数据</h4>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">funcF</span><span class="p">(){</span>
-<span class="w">    </span><span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s2">&quot;keyA&quot;</span><span class="p">,</span><span class="s2">&quot;valueA&quot;</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></table></div>
-<h2 id="dom">DOM 编程</h2>
-<blockquote>
-<p>DOM -&gt; Documentation Object Model </p>
-</blockquote>
-<p><img alt="P4" src="../assets/JS-P4.jpg" />
-通过<code>documentation</code>的API实现页面元素的更改。
-首先，为什么会有<code>DOM</code>单独的分开呢？因为<code>DOM</code>中所包含的API过于丰富，就单独的单开了一个。还有就是可能有人会觉得我可以在<code>html</code>上的源代码进行更改啊，但是事实上是当项目整个发布了之后，我们基本上不会大概前端的源代码，而且对于不同的用户，所面对的都是不同的。那么这种情况我们就需要<code>DOM</code>编程了。无法满足实时修改源代码。</p>
-<p><img alt="P5" src="../assets/JS-P5.jpg" />
-我们的源代码<code>index.html</code>是部署在服务器上的，但是你浏览器所做的只是利用服务器上的源代码来渲染生产了一个<code>document</code>的对象，你所呈现的都是<code>document</code>这个对象所展示出来的内容，你可以如下图一样，在工具栏内部进行对<code>document</code>对象的修改，但是这并不会影响到你服务器上的源代码.
-但是你刷新浏览器，其实就是重新从服务器获取<code>document</code>的内容，重新渲染。
-<img alt="P6" src="../assets/JS-P6.jpg" /></p>
-<p>document 中的对象是层层包含关系，树形结构</p>
-<p><strong>DOM 树的节点类型</strong>
-- 元素节点 element 标签
-- 属性节点 attribute 属性
-- 文本标签 text 两个标签中间包含的文本;</p>
-<h3 id="dom_1">DOM 获取元素的几种方式</h3>
-<ol>
-<li>获得<code>document</code> dom 树</li>
-<li>从<code>document</code>中获取要操作的元素</li>
-<li>直接获取</li>
-<li>间接获取</li>
-<li>对元素进行操作</li>
-<li>操作元素的属性</li>
-<li>操作元素的文本</li>
-<li>操作元素的样式</li>
-<li>
-<p>增删元素</p>
-</li>
-<li>
-<p>直接获取</p>
-</li>
-<li><code>documentById</code></li>
-<li><code>documentByTagName</code></li>
-<li><code>documentByClass</code></li>
-<li>间接获取</li>
-<li>根据父元素
-    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">fun5</span><span class="p">(){</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">div01</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;div01&quot;</span><span class="p">);</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">cs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">div01</span><span class="p">.</span><span class="nx">children</span><span class="w"> </span><span class="c1">//通过父元素，获取全部子元素</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">cs1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">div01</span><span class="p">.</span><span class="nx">firstElementChild</span><span class="p">;</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">cs2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">div01</span><span class="p">.</span><span class="nx">lastElementChild</span><span class="p">;</span>
-<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="nx">i</span><span class="o">=</span><span class="mf">0</span><span class="p">;</span><span class="nx">i</span><span class="o">&lt;</span><span class="nx">cs</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">)</span>
-<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cs</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></table></div></li>
-<li>根据子元素，获取父亲元素</li>
-<li>根据子元素，获取兄弟元素
-    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">func6</span><span class="p">(){</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">child</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">sibling</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">child</span><span class="p">.</span><span class="nx">previousElementSibling</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">nextSibling</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">child</span><span class="p">.</span><span class="nx">nextElementSibling</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></table></div></li>
-</ol>
-<h3 id="dom_2">DOM 操纵元素</h3>
-<ul>
-<li>
-<p>操纵元素的属性
-  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">changeAttribute</span><span class="p">(){</span>
-<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">in1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;in1&quot;</span><span class="p">)</span>
-<span class="w">  </span><span class="c1">// 修改属性值</span>
-<span class="w">  </span><span class="nx">in1</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;green&quot;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></table></div></p>
-</li>
-<li>
-<p>操纵元素的样式
-  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">changeAttribute</span><span class="p">(){</span>
-<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">in1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;in1&quot;</span><span class="p">)</span>
-<span class="w">  </span><span class="c1">// 修改样式值</span>
-<span class="w">   </span><span class="nx">in1</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;green&quot;</span>
-<span class="w">  </span><span class="c1">// 原始样式中的 - 变成驼峰式子 </span>
-<span class="w">   </span><span class="nx">in1</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">borderRadius</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">13</span><span class="nx">px</span><span class="w"> </span>
-<span class="p">}</span>
-</code></pre></div></td></tr></table></div></p>
-</li>
-<li>
-<p>操纵元素的文本</p>
-</li>
-<li><code>document.innerHTML</code></li>
-<li><code>document.innerText</code></li>
-</ul>
-<h3 id="dom_3">DOM 中的增删元素</h3>
-<p><img alt="P7" src="../assets/JS-P7.jpg" /></p>
-<p><img alt="P8" src="../assets/JS-P8.jpg" /></p>
-<style>
-img{
-    display : block;
-    margin-left : auto;
-    margin-right : auto;
-    width : 85%;
-    border-radius : 15px;
-}
-</style>
 
 
 
@@ -3084,12 +2555,12 @@ img{
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
       
-        <script src="../../../javascripts/mathjax.js"></script>
+        <script src="../../../../javascripts/mathjax.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
