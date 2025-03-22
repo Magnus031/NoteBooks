@@ -22,66 +22,171 @@ nav:
       - 特性 : 
         - SPI:  Tutorial/Java/Feature/SPI.md
         - 代理 : Tutorial/Java/Feature/Proxy.md
+        - IO : Tutorial/Java/Feature/IO.md
+        - 注解 : Tutorial/Java/Feature/Annotation.md
       - JVM相关 :
         - Introduce : Tutorial/Java/JVM/introduce.md
         - 内存与垃圾回收 : Tutorial/Java/JVM/Memory.md
         - 字节码与类的加载 : Tutorial/Java/JVM/Byte.md
         - 性能监控与调优 : Tutorial/Java/JVM/Watch.md
+      - 一些关键字的介绍:
+        - Synchornized : Tutorial/Java/KeyWord/Synchronized.md
     - Go :
-      - 介绍 : Tutorial/Go/Introduce.md
-  
-  - 数据结构与算法: 
-    - 动态规划 : LeetCode/DP/DP.md
-    - 贪心算法 : LeetCode/Greedy/Greedy.md
-    - 滑动窗口 : LeetCode/windows/windows.md
-    - 字符串 : LeetCode/String/String.md
-    - 链表 : LeetCode/List/List.md
-    - 堆 : LeetCode/Heap/Heap.md
-    - 树 : LeetCode/Tree/BinaryTree.md
-    - 栈 : LeetCode/Stack/Stack.md
-    - 智力题 : LeetCode/智力题/Smart.md
+      - 介绍 : Tutorial/Go/Introduce.md 
+    - Cpp : 
+      - 标准库 :
+        - bitset : Tutorial/C++/StdLib/bitset.md
+  - 题:
+    - shell : 
+      - 基础 : Exercises/Shell/Shell.md
+    - sql语句:
+      - 基础 : Exercises/SQL/SQL.md
+      - 刷题 : Exercises/SQL/Problems.md
+    - 数据结构与算法: 
+      - 动态规划 : Exercises/LeetCode/DP/DP.md
+      - 贪心算法 : Exercises/LeetCode/Greedy/Greedy.md
+      - 滑动窗口 : Exercises/LeetCode/windows/windows.md
+      - 回溯 : Exercises/LeetCode/BackTrack/BackTrack.md
+      - 字符串 : Exercises/LeetCode/String/String.md
+      - 链表 : Exercises/LeetCode/List/List.md
+      - 堆 : Exercises/LeetCode/Heap/Heap.md
+      - 图 : Exercises/ LeetCode/Graph/Graph.md
+      - 树 : Exercises/LeetCode/Tree/BinaryTree.md
+      - 栈 : Exercises/LeetCode/Stack/Stack.md
+      - 智力题 : Exercises/LeetCode/智力题/Smart.md
+      - 数论 : Exercises/LeetCode/NumberTheory/NumberTheory.md
+    
   - CS : 
+    - Linux: 
+      - 文件权限: CS-courses/Linux/Permission.md
+      - 网络通信: CS-courses/Linux/NetWork.md
     - 计网 : 
       - 易错点 : CS-courses/CN/EasytoMistake.md
       - TCP 层 : CS-courses/CN/TCP.md
-      - http 协议 : CS-courses/CN/Http.md 
+      - HTTP 协议 : CS-courses/CN/Http.md 
     - 设计模式 :
       - 设计模式概况 : CS-courses/DesignPattern/DesignPattern.md
+      - 生产者和消费者模式 : CS-courses/DesignPattern/Consumer&&Productor.md
+      - 责任链模式 : CS-courses/DesignPattern/ChainOfResponsibility.md
+      - 访问者模式 : CS-courses/DesignPattern/Visitor.md
+    - 公开课 :
+      - CMU-15445 :
+        - Project0 : CS-courses/Courses/CMU-15445/Project0.md
+    - 安全 :
+      - 网络安全原理 :
+        - 概述 : CS-courses/Security/网安原/Introduce.md
+        - (Lab)嗅探与窜改 : CS-courses/Security/网安原/Sniff_lab.md
+        - TCP 攻击: CS-courses/Security/网安原/TCP_attack.md
+      - 加密 : CS-courses/Security/Encrypt.md
+  
   - 技术 : 
+    - 消息队列:
+      - RocketMQ : 
+        - 概述 : Tech/MQ/RocketMQ/Introduce.md
+        - 八股 : Tech/MQ/RocketMQ/Problems.md
+      - Kafka :
+        - 概述 : Tech/MQ/Kafka/Introduce.md
+        - 八股 : Tech/MQ/Kafka/Problems.md
     - Web :
       - 异步 : Tech/Web/Asyn.md 
       - cookie,session,token : Tech/Web/cookie.md
+      - 跨域 : Tech/Web/CrossDomain.md
+      - IO 多路复用 : Tech/Web/IO.md
     - 并发 :
       - 并发编程 : Tech/Concurrency/Concurrency.md
       - 锁 : Tech/Concurrency/Lock.md
+      - 线程池 : Tech/Concurrency/ThreadPool.md
+    - Maven :
+      - 概述 : Tech/Maven/Introduce.md
+      - 八股 : Tech/Maven/Problems.md
+    - Redis :
+      - 基础 :
+        - Introduce : Tech/Redis/Easy/Introduce.md
+        - 数据结构 : Tech/Redis/Easy/DataStructure.md
+      - 内存淘汰策略 : Tech/Redis/Policy.md
+      - 分布式 : Tech/Redis/distributed.md
+      - 场景题 : Tech/Redis/Scene.md
+    - Mybatis-plus:
+      - 注解: Tech/MyBatisPlus/Annotation.md
+    - Spring :
+      - SpringCloud : Tech/Spring/Cloud/Introduce.md
+      - SpringBoot : Tech/Spring/Boot/Introduce.md 
+    - 分布式 : 
+      - 负载均衡 : Tech/Distributed/LoadBalance
+    - etcd : Tech/Etcd.md
+  
+
+    - Dubbo :
+      - 概述 : Tech/Dubbo/Introduce.md
+      - Nacos : 
+        - 概述 : Tech/Dubbo/Nacos/Nacos.md
+    - SkyWalking : 
+      - 概述 : Tech/skyWalking/skyWalking.md
+
 
   - Economic :  Economic-Courses
   - 讨饭经历 : 
     - 面经 : 
+      - 场景题 : 
+        - SSO单点登录 : Interview/InExperience/Scene/SSO.md
       - 数据库 : 
         - 数据库八股 : Interview/InExperience/mysql/mysql.md
+        - 数据库字符集的比较 : Interview/InExperience/mysql/charset.md
+        - InnoDB : Interview/InExperience/mysql/InnoDB.md
       - Java : 
         - Java八股 : Interview/InExperience/Java/Java.md
         - Java并发 : Interview/InExperience/Java/concurrency.md
+        - Java集合 : Interview/InExperience/Java/collections.md
+      - 计算机网络 :
+        - 计算机网络八股 : Interview/InExperience/network/introduce.md
     - 项目 : 
       - 基于RPC项目:
         - RPC 项目介绍: Interview/Project/RPCFrameWork/Introduce.md
         - RPC 场景题: Interview/Project/RPCFrameWork/RPC.md
         - RPC 项目总结: Interview/Project/RPCFrameWork/Summary.md
+      - 抖音商城:
+        - Java 版本:
+          - 项目介绍 : Interview/Project/DouYinMall/Java/Introduce.md
+          - 接口文档 : Interview/Project/DouYinMall/Java/Interface.md
+          - 订单模块 : Interview/Project/DouYinMall/Java/order.md
+      - API 开放平台:
+        - 项目介绍 : Interview/Project/API开放平台/Introduce.md
+        - 接口文档 : Interview/Project/API开放平台/Interface.md
+        - 业务需求分析 : Interview/Project/API开放平台/Requirement.md
     - 复盘 : 
       - 一面 : 
         - 1月20日 : Interview/Recall/First-Interview/1-20.md 
+        - 3月5日: Interview/Recall/First-Interview/3-5.md 
+    - 刷题 :
+      - 2月 : 
+        - Week1 : Interview/LeetCode/2-Week1.md
+        - Week2 : Interview/LeetCode/2-Week2.md
+    - 真题 :
+      - 淘天 : 
+        - 第一套 : Interview/真题/淘天/No1.md
+      - 第一套 : Interview/真题/No1.md
+      - 第二套 : Interview/真题/No2.md
+      - 第三套 : Interview/真题/No3.md
+      - 第四套 : Interview/真题/No4.md
+  
   - 一些看过的书 : Books
-  - 拙见 : Experiences
+  - 拙见 : 
+    - 讨饭日记 : 
+      - 2025年 : 
+        - 2月 : 
+          - Week1 : Experiences/日记/2025/2月/week1.md
   - 源码解析 : 
     - Java :
       - Timer : SourceCode/Java/Timer.md
       - Collections: 
         - List :
           - ArrayList : SourceCode/Java/Collections/List/ArrayList.md
+          - LinkedList : SourceCode/Java/Collections/List/LinkedList.md
+
         - Map :
           - HashMap : SourceCode/Java/Collections/Map/HashMap.md
-
+          - ConcurrentHashMap : SourceCode/Java/Collections/Map/ConcurrentHashMap.md
+        - 导论 : SourceCode/Java/Collections/Introduce.md
 theme: 
   name : material
 

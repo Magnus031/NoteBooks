@@ -99,7 +99,7 @@ public ArrayList(Collection<? extends E> c) {
 
 简单的概括就是，我们在构造函数的时候，其实分为了三种情况:
 
-- 我们直接利用无参构造函数
+- 我们直接利用无参构造函数,当使用无参构造函数的时候，就不会直接创建一个数组，而是使用了一个空数组。 **但是 JDK6 new 无参构造的 `ArrayList` 是直接初始创建了一个大小为10的数组**
 - 我们指定了初始容量的构造函数
 - 我们利用了`Collection`的构造函数，**值得注意的是，我们需要检查`elementData.getClass()!=Object[].class`** 这个是因为，`toArray()`方法可能会返回一个不是`Object[]`的数组。
 
@@ -150,8 +150,88 @@ private void ensureExplicitCapacity(int minCapacity) {
 简单的来说 `ensureCapacityInternal` 方法的作用就是判断当前数组的容量和我们已经规定的默认容量是否有超出，倘若超出了的话，就会进行扩容`grow()`.
 
 
+注意区分两个参数:
 
- 
+- `minCapacity` : 传入的参数，表示我们需要的最小容量,也就是当前数组中需要存储的元素个数。
+- `elementData.length` : 当前数组的长度，也就是当前数组的容量。
+
+
+### `grow(int minCapacity)`
+
+```java
+/**
+ * 要分配的最大数组大小
+ */
+private static final int MAX_ARRAY_SIZE = Integer.MAX_VALUE - 8;
+
+/**
+ * ArrayList扩容的核心方法。
+ */
+private void grow(int minCapacity) {
+    // oldCapacity为旧容量，newCapacity为新容量
+    int oldCapacity = elementData.length;
+    // 将oldCapacity 右移一位，其效果相当于oldCapacity /2，
+    // 我们知道位运算的速度远远快于整除运算，整句运算式的结果就是将新容量更新为旧容量的1.5倍，
+    int newCapacity = oldCapacity + (oldCapacity >> 1);
+
+    // 然后检查新容量是否大于最小需要容量，若还是小于最小需要容量，那么就把最小需要容量当作数组的新容量，
+    if (newCapacity - minCapacity < 0)
+        newCapacity = minCapacity;
+
+    // 如果新容量大于 MAX_ARRAY_SIZE,进入(执行) `hugeCapacity()` 方法来比较 minCapacity 和 MAX_ARRAY_SIZE，
+    // 如果minCapacity大于最大容量，则新容量则为`Integer.MAX_VALUE`，否则，新容量大小则为 MAX_ARRAY_SIZE 即为 `Integer.MAX_VALUE - 8`。
+    if (newCapacity - MAX_ARRAY_SIZE > 0)
+        newCapacity = hugeCapacity(minCapacity);
+
+    // minCapacity is usually close to size, so this is a win:
+    elementData = Arrays.copyOf(elementData, newCapacity);
+}
+```
+
+
+我们接下来来看一下 `grow(int minCapacity)` 方法的具体实现。主要的思路就是 **通过位运算扩容成1.5倍** `newCapacity = oldCapacity + (oldCapacity>>1);` , 远远快于整数运算。
+
+同时我们也要保证，我们的扩容不能超过 `MAX_ARRAY_SIZE`，这个是一个常量，表示数组的最大容量。如果超过了这个值，我们就需要调用 `hugeCapacity()` 方法来进行比较。
+
+
+### `Arrays.copyOf()` 和 `System.arraycopy()` 方法
+
+先来看一下 `System.arraycopy()` 方法
+
+`native` 方法是指的是调用了本地方法，也就是说这个方法是由本地代码实现的，而不是由`Java`代码实现的。通常会调用一个本地方法来实现实际的数组复制操作。
+
+```java
+    // 我们发现 arraycopy 是一个 native 方法,接下来我们解释一下各个参数的具体意义
+    /**
+    *   复制数组
+    * @param src 源数组
+    * @param srcPos 源数组中的起始位置
+    * @param dest 目标数组
+    * @param destPos 目标数组中的起始位置
+    * @param length 要复制的数组元素的数量
+    */
+    public static native void arraycopy(Object src,  int  srcPos,
+                                        Object dest, int destPos,
+                                        int length);
+```
+
+
+再来看一下 `Arrays.copyOf()`方法，是`java.util.Arrays`类中的一个静态方法，用于复制一个数组的指定部分，并且返回一个新的数组。不仅可以复制数组，还能对新数组的长度进行控制。
+
+**倘若新数组的 `newLength` 的长度比原数组的长度长，我们就可以考虑多余的部分用默认值进行填充**
+
+```java
+public static int[] copyOf(int[] original, int newLength) {
+      // 申请一个新的数组
+        int[] copy = new int[newLength];
+  // 调用System.arraycopy,将源数组中的数据进行拷贝,并返回新的数组
+        System.arraycopy(original, 0, copy, 0,
+                         Math.min(original.length, newLength));
+        return copy;
+    }
+```
+
+
 
 ## 常见问题
 
@@ -177,3 +257,12 @@ private void ensureExplicitCapacity(int minCapacity) {
 
 ### Q3: `ArrayList` 可以存放 `null` 吗？
 可以的，因为它是一个泛型类，所以可以存放任何类型的数据。
+
+
+### Q4: `Vector` 和 `Stack` 的区别
+
+- `Vector` 和 `Stack` 两者都是线程安全，都是使用 `synchronized` 关键字来保证同步处理。
+
+- `Stack` 继承自 `Vector`，所以它的底层实现也是基于数组的，但是它的方法都是同步的，所以它是线程安全的。
+
+但是 `Stack` 现在已经被淘汰了，都是通过 `Deque` 来进行实现，因为 `Stack` 继承自 `Vector`，所以它的性能不是很好。

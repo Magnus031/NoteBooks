@@ -18,15 +18,34 @@
         - CSS 
         - TypeScript  
     - 技术栈 : 
-        - Vue3 
-        - React 
+        - **框架** React 
+        - **脚手架** Ant Design Pro
+        - OpenAPI
 - 后端
-    - 语言 : 
+    - 语言1: 
         - Java
-        - go ...
     - 技术栈 : 
         - SpringBoot
-        - Mybatis Mybatis-plus
+        - Mybatis-plus
+        - 缓存 : Redis
+        - 消息队列 : RocketMQ 
+        - 网关 : SpringCloud-Gateway
+        - RPC框架 : Dubbo(Nacos)
+
+    - 语言2：Go （学习中）
+
+    - 语言3：C++ 
+        - 用处 : 算法学习（写题专用）
+        - 搓轮子 : 
+            - TCP协议
+            - 编译原理实验 ZJU-Compiler
+            - 数据库实验 CMU-15445
+    
+    - 语言4: C
+        - 用处 : 操作系统学习
+        - 搓轮子 : 
+            - 操作系统实验 ZJU-OS 
+
 ## Plan 
 
 - 目前在准备要饭
